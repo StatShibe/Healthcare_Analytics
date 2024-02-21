@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+img{
+    height : 60px;
+    width : 60px;
+    border-radius: 50%;
+}
+
+*{
+    font-family: 'poppins';
+    font-size: large;
+    font-weight: bolder;
+}
