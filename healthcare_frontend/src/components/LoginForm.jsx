@@ -5,6 +5,7 @@ const LoginForm = () => {
         <div className="bg-white px-10 py-30 rounded-3xl border-2 border-gray">
             <h1 className="text-4xl font-semibold m-3 text-center mt-6">Welcome Back</h1>
             <p className="font-medium text-lg text-gray-500 mt-4 text-center">Please enter your details.</p>
+            <form>
             <div className="mt-6">
                 <div className="my-3">
                     <label className="text-lg font-medium">Email</label>
@@ -15,20 +16,18 @@ const LoginForm = () => {
                     <input className="w-full border-2 border-gray-100 rounded-xl p-4 mt-1 bg-transparent" placeholder="Enter your password" type="password"/>
                 </div>
                 <div className="mt-8 flex justify-between items-center">
-                    <div>
-                        <input type = "checkbox" id = "remember"/>
-                        <label className = "ml-2 font-medium text-base text-violet-400" for = "remember">Remember for 30 days</label>
-                    </div>
-                    <button className="hover:text-purple-500">Forgot Password</button>
+                    <button className="hover:text-purple-500 underline">Forgot Password</button>
                 </div>
                 <div className="mt-8 flex flex-col gap-y-4">
-                    <button className="hover: shadow-lg active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold">Sign in</button>
+                    <button className="hover: shadow-lg active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out hover:bg-gradient-to-r from-violet-500 to-pink-400  transition-all py-3 rounded-xl bg-violet-500 text-white text-lg font-bold">Sign in</button>
                 </div>
                 <div className="mt-8 mb-4 flex justify-center items-center">
                     <p className="font-medium text-base">Don't have an account?</p>
-                    <button className="text-violet-500 text-base font-medium ml-2" type="submit">Sign Up</button>
+                    <input className="text-violet-500 text-base font-medium ml-2" type="submit" value="Sign up"/>
                 </div>
             </div>
+            </form>
+            
         </div>
     )
 };
