@@ -9,9 +9,30 @@ const verifyJWT = require('./middleware/verifyJWT');
 const { verify } = require('crypto');
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
+const client = require('./config/dbConn');
 const PORT = process.env.PORT || 3500;
 
-
+try{
+    client.connect();
+    console.log('Connected with Postgress successfully');
+}
+catch(err){
+    console.log(err);
+}
+/*
+const result = client.query('select * from users', (err, res) => {
+    if(!err){
+        console.log(res.rows);
+        if(res.rows.length == 0){
+            console.log('it is empty');
+        }
+    }
+    else{
+        console.log(err.message);
+    }
+    client.end;
+})
+*/
 // custom middleware logger
 app.use(logger);
 

@@ -1,9 +1,4 @@
-const usersDB = {
-    users: require('../model/users.json'),
-    setUsers: function (data) { this.users = data }
-}
-const fsPromises = require('fs').promises;
-const path = require('path');
+const client = require('../config/dbConn')
 
 const handleLogout = async(req, res) => {
 
@@ -11,19 +6,24 @@ const handleLogout = async(req, res) => {
     if (!cookies?.jwt) return res.sendStatus(204);
     const refreshToken = cookies.jwt;
 
-    const foundUser = usersDB.users.find(person => person.refreshToken === refreshToken);
-    if (!foundUser) {
+    const query = {
+        text : 'SELECT * FROM users WHERE refreshtoken = $1',
+        values : [refreshToken]
+    }
+    const foundUser = await client.query(query);
+    console.log(foundUser.rows)
+    if (foundUser.rows.length == 0) {
         res.clearCookie('jwt', { httpOnly : true, sameSite: 'None', secure: true})
         return res.sendStatus(204);
     }; //Unauthorized 
+
+    const refreshDel = {
+        text : 'UPDATE users SET refreshtoken = $1 WHERE email = $2',
+        values : ['0', foundUser.rows[0].email]
+    }
+
+    client.query(refreshDel);
     
-    const otherUsers = usersDB.users.filter(person => person.refreshToken !== foundUser.refreshToken)
-    const currentUser = {...foundUser, refreshToken : ""};
-    usersDB.setUsers([...otherUsers, currentUser]);
-    await fsPromises.writeFile(
-        path.join(__dirname, "..", 'model','users.json'),
-        JSON.stringify(usersDB.users)
-    )
     res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', secure: true});
     res.sendStatus(204);
 }

@@ -1,26 +1,27 @@
-const usersDB = {
-    users: require('../model/users.json'),
-    setUsers: function (data) { this.users = data }
-}
+const client = require('../config/dbConn');
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config()
-const fsPromises = require('fs').promises;
-const path = require('path');
 
 const handleLogin = async (req, res) => {
     const { user, pwd } = req.body;
     if (!user || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
-    const foundUser = usersDB.users.find(person => person.username === user);
-    if (!foundUser) return res.sendStatus(401); //Unauthorized 
+    console.log(user);
+    const query = {
+        text : 'SELECT * FROM users WHERE email = $1',
+        values : [user]
+    }
+    const foundUser = await client.query(query);
+    if (foundUser.rows.length == 0) return res.sendStatus(401); //Unauthorized 
     // evaluate password 
-    const match = await bcrypt.compare(pwd, foundUser.password);
+    const match = await bcrypt.compare(pwd, foundUser.rows[0].password);
     if (match) {
-        const roles = Object.values(foundUser.roles)
+        const roles = Object.values(foundUser.rows[0].role)
         // create JWTs
         const accessToken = jwt.sign(
             {'UserInfo' : {
-                    'username':foundUser.username,
+                    'username':foundUser.rows[0].email,
                     "roles":roles
                 }
             },
@@ -28,17 +29,19 @@ const handleLogin = async (req, res) => {
             { expiresIn: '30s'}
         );    
         const refreshToken = jwt.sign(
-            {'username':foundUser.username},
+            {'username':foundUser.rows[0].email},
             process.env.REFRESH_TOKEN_SECRET,
             { expiresIn: '1d' }
         );   
-        const otherUsers = usersDB.users.filter(person => person.username !== foundUser.username) 
-        const currentUser = {...foundUser, refreshToken};
-        usersDB.setUsers([...otherUsers, currentUser])
-        await fsPromises.writeFile(
-            path.join(__dirname,"..","model","users.json"),
-            JSON.stringify(usersDB.users)
-        );
+        
+        const refreshQuery = {
+            text : 'UPDATE users SET refreshtoken = $1 WHERE email = $2',
+            values : [refreshToken, user]
+        }
+
+        client.query (refreshQuery);
+
+        console.log(refreshToken);
         res.cookie('jwt', refreshToken, {httpOnly : true, sameSite: 'None', secure : true, maxAge: 24 * 60 * 60 * 1000});
         res.json({ accessToken });
     } else {
