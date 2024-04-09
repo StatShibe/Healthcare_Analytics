@@ -3,6 +3,9 @@ import cardiogramIcon from "../assets/images/electrocardiogram.svg"
 //import cardiogramIcon2 from "./assets/images/electroheart.svg"
 
 const LoginPage = () => {
+
+   
+
     return(
         <div className="flex w-full h-screen bg-[url('./assets/images/loginbackground.png')] bg-auto">
       <div className="w-full flex items-center justify-center lg:w-1/2">

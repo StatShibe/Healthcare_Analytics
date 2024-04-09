@@ -195,3 +195,13 @@
 20240317	22:54:45	064c89ea-13b2-4902-a90f-febe5543bd93	GET	undefined	/refresh
 20240317	22:54:51	ba4e738d-ad08-4c4e-9e6c-47ea27dd4afb	POST	undefined	/auth
 20240317	22:54:55	09beeeb2-71cf-481f-8ef5-a9cd34dc32d1	GET	undefined	/refresh
+20240409	16:51:50	7455bc5d-1a96-41de-a58b-02e91cb36a19	OPTIONS	http://localhost:5173	/auth
+20240409	16:52:35	282a9f6f-9c14-453a-916a-e175ed75e20d	OPTIONS	http://localhost:5173	/auth
+20240409	16:52:35	fc52491e-91a0-41f5-b956-20a2e7ff08de	POST	http://localhost:5173	/auth
+20240409	16:52:36	c56f82d1-b12a-4640-bd3d-218352a57d5b	POST	http://localhost:5173	/auth
+20240409	16:53:20	ec0ffae3-1545-4b0f-af68-544abd7e872e	OPTIONS	http://localhost:5173	/auth
+20240409	16:53:20	fef0269f-50f4-47cf-b212-94a03befdf3c	POST	http://localhost:5173	/auth
+20240409	16:53:32	1ebbe46a-75e6-40e2-8cf4-bfdd7d68ee6a	OPTIONS	http://localhost:5173	/auth
+20240409	16:53:32	d0026fa9-28b7-4f3a-998c-c3adca6c4173	POST	http://localhost:5173	/auth
+20240409	16:57:58	fe56789a-5982-40e3-a5b4-fff8bf3dd382	OPTIONS	http://localhost:5173	/auth
+20240409	16:57:58	f3465b0e-df6a-44e9-946a-ee4dabb919a2	POST	http://localhost:5173	/auth

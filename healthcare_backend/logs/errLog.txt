@@ -10,3 +10,4 @@
 20240304	10:12:16	ef517451-e21b-49c0-8253-a5de33cc8640	ReferenceError: refreshToken is not defined
 20240304	10:12:16	8acffcb3-931b-4344-8077-ae2f043b059f	ReferenceError: refreshToken is not defined
 20240304	10:13:30	2e70f469-4c6e-49f8-8c5c-3ab24ef12776	ReferenceError: refreshToken is not defined
+20240409	16:51:50	2ed15f86-a183-43ed-a0c2-1b1042295b27	Error: Not allowed by CORS
