@@ -1,5 +1,6 @@
 import React from "react";
 import {useRef, useState, useEffect, useContext} from 'react';
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthProvider";
 
 import axios from '../api/axios';
@@ -8,8 +9,8 @@ const LOGIN_URL = '/auth';
 const LoginForm = () => {
     const {setAuth} = useContext(AuthContext);
     const userRef = useRef();
-    const errRef = useRef();
-
+    //const errRef = useRef();
+    const navigate = useNavigate();
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -60,9 +61,7 @@ const LoginForm = () => {
     return(
         <>
         {success ? (
-            <section>
-                <h1>You have successfully logged in</h1>
-            </section>
+            navigate('/dashboard')
         ) : (
             <div className="bg-white px-10 py-30 rounded-3xl border-2 border-gray">
             <h1 className="text-4xl font-semibold m-3 text-center mt-6">Welcome Back</h1>
