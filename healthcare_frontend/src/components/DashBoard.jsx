@@ -1,6 +1,18 @@
 import React from 'react'
 
 export const DashBoard = () => {
+
+  const handleLogout = async() => {
+    try{
+      const response = await axios.get("/logout");
+      console.log(response)
+    }
+    catch(err){
+      console.log(err);
+    }
+   
+  }
+
   return (
     <><div>
         <div className='flex flex-row h-[60px] w-full bg-cyan-800 justify-center'>

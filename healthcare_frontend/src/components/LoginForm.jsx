@@ -1,16 +1,17 @@
 import React from "react";
-import {useRef, useState, useEffect, useContext} from 'react';
+import {useRef, useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
-import AuthContext from "../context/AuthProvider";
+import useAuth from "../hooks/useAuth";
 
 import axios from '../api/axios';
 const LOGIN_URL = '/auth';
 
 const LoginForm = () => {
-    const {setAuth} = useContext(AuthContext);
+    const {setAuth} = useAuth();
     const userRef = useRef();
     //const errRef = useRef();
     const navigate = useNavigate();
+
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -32,7 +33,8 @@ const LoginForm = () => {
                 JSON.stringify({user, pwd}),
                 {
                     headers: {'Content-Type' : 'application/json'},
-                    withCredentials: true
+                    withCredentials: true,
+                    credentials: 'include'
                 }
             )
             console.log(JSON.stringify(response?.data));

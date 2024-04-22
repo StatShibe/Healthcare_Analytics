@@ -1,17 +1,24 @@
 import './App.css';
 import LoginPage from './pages/LoginPage';
-import {Route, Routes, useNavigate, BrowserRouter as Router} from 'react-router-dom';;
+import {Route, Routes} from 'react-router-dom';;
 import { DashBoard } from './components/DashBoard';
+import RequireAuth from './components/RequireAuth';
+import Layout from './components/Layout';
 
 function App() {
 
   return (
-      <Router>
-        <Routes>
-          <Route path = "/" element = { <LoginPage navigate = {useNavigate}/>}/>
-          <Route path = "/dashboard" element = { <DashBoard navigate = {useNavigate}/>}/>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path = "/" element = {<Layout/>}>
+
+          <Route path = "login" element = { <LoginPage/>}/>
+
+          <Route element = {<RequireAuth />}>
+            <Route path = "dashboard" element = { <DashBoard/>}/>
+          </Route>
+
+        </Route>
+      </Routes>
   )
 }
 
