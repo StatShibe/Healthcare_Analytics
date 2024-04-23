@@ -1,8 +1,7 @@
 import './App.css';
 import LoginPage from './pages/LoginPage';
 import {Route, Routes} from 'react-router-dom';;
-import { NavigationBar } from './components/NavigationBar';
-import RequireAuth from './components/RequireAuth';
+import DashboardPage from './pages/DashboardPage';
 import Layout from './components/Layout';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
         <Route path = "/" element = {<Layout/>}>
 
           <Route path = "login" element = { <LoginPage/>}/>
-          <Route path = "dashboard" element = { <NavigationBar/>}/>
+          <Route path = "dashboard" element = { <DashboardPage/>}/>
 
         </Route>
       </Routes>
