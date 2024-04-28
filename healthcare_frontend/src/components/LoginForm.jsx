@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 import axios from '../api/axios';
-const LOGIN_URL = '/auth';
+const LOGIN_URL = 'http://localhost:3500/auth/login';
 
 const LoginForm = () => {
     const {setAuth} = useAuth();
@@ -30,9 +30,10 @@ const LoginForm = () => {
 
         try{
             const response = await axios.post(LOGIN_URL,
-                JSON.stringify({user, pwd}),
+                {email:user, password:pwd},
                 {
-                    headers: {'Content-Type' : 'application/json'},
+                    // headers: {'Content-Type' : 'application/json'},
+                    headers: {'content-type': 'application/x-www-form-urlencoded'},
                     withCredentials: true,
                     credentials: 'include'
                 }
