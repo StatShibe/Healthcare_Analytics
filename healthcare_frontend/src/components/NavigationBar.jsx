@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 export const NavigationBar = () => {
 
@@ -8,12 +9,12 @@ export const NavigationBar = () => {
     <>
       <div>
         <div className='flex flex-row h-[60px] w-full bg-cyan-800 justify-center text-'>
-          <div className={buttonStyling}>Home</div>
-          <div className={buttonStyling}>DashBoard</div>
-          <div className={buttonStyling}>Allocation</div>
-          <div className={buttonStyling}>Patients</div>
-          <div className={buttonStyling}>Doctors</div>
-          <div className={buttonStyling}>Reservations</div>
+          <div className={buttonStyling}><Link to = "/">Home</Link></div>
+          <div className={buttonStyling}><Link to = "/dashboard">DashBoard</Link></div>
+          <div className={buttonStyling}><Link to = "#allocation">Allocation</Link></div>
+          <div className={buttonStyling}><Link to = "#patients">Patients</Link></div>
+          <div className={buttonStyling}><Link to = "#doctors">Doctors</Link></div>
+          <div className={buttonStyling}><Link to = "#reservations">Reservations</Link></div>
         </div>
       </div>
     </>

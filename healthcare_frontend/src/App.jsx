@@ -1,14 +1,12 @@
 import './App.css';
-import LoginPage from './pages/LoginPage';
-import {Route, Routes} from 'react-router-dom';;
-import DashboardPage from './pages/DashboardPage';
-import Layout from './components/Layout';
+import { NavigationBar } from './components/NavigationBar';
 
 function App() {
 
   return (
       <>
         <div>
+        <NavigationBar/>
           <h1>Landing Page</h1>
         </div>
       </>
