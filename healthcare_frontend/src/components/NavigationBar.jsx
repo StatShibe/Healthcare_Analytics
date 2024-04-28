@@ -1,22 +1,25 @@
-import React from 'react'
 import {Link} from "react-router-dom"
+import profileIcon from "../assets/images/profileIcon.svg"
 
 export const NavigationBar = () => {
 
-  const buttonStyling = 'bg-red-200 w-32 p-5 text-center hover:bg-pink-400 hover:text-white';
+  const buttonStyling = 'bg-white h-[60px] w-36 p-5 text-center hover:bg-slate-400 hover:text-white';
 
   return (
     <>
-      <div>
-        <div className='flex flex-row h-[60px] w-full bg-cyan-800 justify-center text-'>
-          <div className={buttonStyling}><Link to = "/">Home</Link></div>
-          <div className={buttonStyling}><Link to = "/dashboard">DashBoard</Link></div>
-          <div className={buttonStyling}><Link to = "#allocation">Allocation</Link></div>
-          <div className={buttonStyling}><Link to = "#patients">Patients</Link></div>
-          <div className={buttonStyling}><Link to = "#doctors">Doctors</Link></div>
-          <div className={buttonStyling}><Link to = "#reservations">Reservations</Link></div>
-        </div>
-      </div>
+		<div>
+			<div className='flex flex-row h-[60px] w-full bg-white justify-center items-center text-center border-b-2'>
+				<div className={buttonStyling}><Link to = "/">Home</Link></div>
+				<div className={buttonStyling}><Link to = "/dashboard">DashBoard</Link>	</div>
+				<div className={buttonStyling}><Link to = "#allocation">Allocation</Link></div>
+				<div className={buttonStyling}><Link to = "#patients">Patients</Link></div>
+				<div className={buttonStyling}><Link to = "#doctors">Doctors</Link></div>
+				<div className={buttonStyling}><Link to = "#reservations">Reservations</Link></div>
+				<div className="absolute right-0 pr-12">
+					<Link to = "/login"><img src={profileIcon} className="h-[35px] w-[35px]" /></Link>
+				</div>
+			</div>
+		</div>
     </>
   )
 }

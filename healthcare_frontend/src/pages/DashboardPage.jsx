@@ -7,7 +7,7 @@ import PieGraph from '../components/Charts/Pie'
 const DashboardPage = () => {
   return (
     <>
-		<div className="h-screen w-screen bg-sky-50 font-poppins">
+		<div className="h-screen w-screen bg-white font-poppins">
 		  	<NavigationBar/>
 			<div className='grid grid-cols-3 gap-4 justify-center'>
 				<div className='p-5'>
