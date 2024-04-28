@@ -7,7 +7,7 @@ export const NavigationBar = () => {
   return (
     <>
       <div>
-        <div className='flex flex-row h-[60px] w-full bg-cyan-800 justify-center'>
+        <div className='flex flex-row h-[60px] w-full bg-cyan-800 justify-center text-'>
           <div className={buttonStyling}>Home</div>
           <div className={buttonStyling}>DashBoard</div>
           <div className={buttonStyling}>Allocation</div>

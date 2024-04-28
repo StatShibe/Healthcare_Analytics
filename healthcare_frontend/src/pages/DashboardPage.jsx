@@ -4,8 +4,9 @@ import { NavigationBar } from '../components/NavigationBar'
 const DashboardPage = () => {
   return (
     <>
-        <NavigationBar/>
-        <h1>Hello</h1>
+		  <div className="h-screen w-screen bg-[url('./assets/images/login-blue.jpg')] bg-cover font-poppins">
+		  	<NavigationBar/>
+      </div>
     </>
   )
 }
