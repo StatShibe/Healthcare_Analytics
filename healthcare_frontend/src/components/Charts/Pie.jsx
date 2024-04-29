@@ -27,7 +27,8 @@ const PieGraph = () => {
     };
 
 	const options = {
-		maintainAspectRatio : false
+		maintainAspectRatio : false,
+        responsive : true
 	}
 
 	return(

@@ -9,7 +9,8 @@ ChartJS.register(
 const LineGraph = () => {
 
 	const options = {
-		maintainAspectRatio : false
+		maintainAspectRatio : false,
+		responsive : true
 	}
 
 	return(
