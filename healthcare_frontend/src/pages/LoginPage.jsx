@@ -1,12 +1,29 @@
+import { useState } from "react";
+import {useNavigate} from "react-router-dom";
 import cardiogramIcon from "../assets/images/electrocardiogram.svg" 
+import axios from 'axios';
 
 
 const LoginPage = () => {
+	const [data,setData] = useState({});
+	const navigate = useNavigate();
 
-   const handleLogin = async() =>{
-		console.log("Logged in")
+   const handleLogin = async(e) =>{
+	e.preventDefault();
+		await axios.post(import.meta.env.VITE_SERVER_URL+'/auth/login',data,{
+			headers: {'content-type': 'application/x-www-form-urlencoded'},
+            withCredentials: true,
+            credentials: 'include'
+		}).then((response)=>{
+			console.log(response.data)
+			console.log("Logged in!");
+			navigate('/');
+		});
    }
 
+   const handleChange = (e) =>{
+		setData({...data,[e.target.name]:e.target.value});
+   }
     return(
       <>
         <div className="h-screen w-screen bg-[url('./assets/images/login-blue.jpg')] bg-cover flex flex-row justify-center items-center">
@@ -16,13 +33,13 @@ const LoginPage = () => {
 					<br/>
 					<form onSubmit={handleLogin}>
 						<div className="flex justify-around">
-							<label className="text-white" for = "emailid">Email ID</label>
-							<input className ="h-7 w-[200px] border-2 rounded-lg" id = "emailid" type = "email" required/>
+							<label className="text-white" htmlFor = "emailid">Email ID</label>
+							<input className ="h-7 w-[200px] border-2 rounded-lg" id = "emailid" type = "email" name="email" required onChange={handleChange}/>
 						</div>
 						<br/>
 						<div className="flex justify-around">
-							<label className = "text-white" for = "password">Password</label>
-							<input className="h-7 w-[200px] border-2 rounded-lg" id = "password" type = "password" required/>
+							<label className = "text-white" htmlFor = "password">Password</label>
+							<input className="h-7 w-[200px] border-2 rounded-lg" id = "password" type = "password" name= "password" required onChange={handleChange}/>
 						</div>
 						<br/>
 						<div className="ml-6">

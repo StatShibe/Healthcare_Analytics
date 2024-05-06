@@ -12,7 +12,7 @@ router.get('/',(req,res)=>{
 });
 
 router.post('/login',async(req,res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     const result = await db.query('SELECT * from users where email = $1',[req.body.email]);
     if(result.rows.length==0){
         res.status(301).send("User not found");
@@ -45,9 +45,8 @@ router.post('/register',async(req,res)=>{
     }
 });
 
-router.post('/logout',async(req,res)=>{
-    res.cookie('jwt',"hello");
-    res.clearCookie('jwt');
+router.get('/logout',async(req,res)=>{
+    res.cookie('jwt','',{ maxAge: 1, httpOnly: true });
     res.status(200).send("Logged Out");
 })
 

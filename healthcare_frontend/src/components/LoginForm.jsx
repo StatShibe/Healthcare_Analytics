@@ -63,9 +63,6 @@ const LoginForm = () => {
 
     return(
         <>
-        {success ? (
-            navigate('/dashboard')
-        ) : (
             <div className="bg-white px-10 py-30 rounded-3xl border-2 border-gray">
             <h1 className="text-4xl font-semibold m-3 text-center mt-6">Welcome Back</h1>
             <p className="font-medium text-lg text-gray-500 mt-4 text-center">Please enter your details.</p>
@@ -110,7 +107,6 @@ const LoginForm = () => {
             </form>
             
         </div>
-        )}
         </> 
     )
 };
