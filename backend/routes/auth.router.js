@@ -45,7 +45,7 @@ router.post('/register',async(req,res)=>{
     }
 });
 
-router.get('/logout',async(req,res)=>{
+router.post('/logout',async(req,res)=>{
     res.cookie('jwt','',{ maxAge: 1, httpOnly: true });
     res.status(200).send("Logged Out");
 })
