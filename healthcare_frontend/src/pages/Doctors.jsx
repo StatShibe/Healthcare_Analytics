@@ -1,5 +1,6 @@
 import NavigationBar from "../components/NavigationBar"
 import SideMenu from "../components/SideMenu" 
+import CardComp from "../components/CardComp"
 
 export const Doctors = () => {
   return (
@@ -7,7 +8,8 @@ export const Doctors = () => {
       <SideMenu/>
       <div className="h-screen w-screen bg-white font-poppins">
       <NavigationBar/>
-          <h1>Doctors</h1>
+      <CardComp text={"Dr. Doom"}/>
+      <CardComp text={"Dr. Strange"}/>
       </div>
     </div>
   )
