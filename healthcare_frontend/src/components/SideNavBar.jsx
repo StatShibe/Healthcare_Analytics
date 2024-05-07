@@ -10,7 +10,7 @@ const SideNavBar = ({ children }) => {
             {/* Sidebar */}
             <div className={`bg-white border-r ${isOpen ? "" : "border-gray-300"} w-full flex flex-col`}>
                 {/* Sidebar Header */}
-                <div className="flex items-center justify-between p-4 border-b">
+                <div className="flex items-center justify-between p-4 h-14">
                     <HospitalIcon className = "h-10 w-10" />
                     <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
                         {isOpen ? <ChevronLeft className= "w-6 h-6" /> : <ChevronRight className="w-4 h-4" />}
@@ -29,12 +29,12 @@ const SideNavBar = ({ children }) => {
 
 export default SideNavBar;
 
-export const SideBarItem = ({text}) =>{
+export const SideBarItem = ({text, icon}) =>{
     const {isOpen} = useContext(SideBarContext)
     return(
-        <li className={`hover:bg-slate-500 hover:text-white overflow-hidden h-10 p-2 ${isOpen ? "w-64" : "w-16" }`}>
+        <li className={`hover:bg-slate-500 hover:text-white overflow-hidden h-10 p-2 cursor-pointer ${isOpen ? "w-64" : "w-16" }`}>
             <div className="flex flex-row">
-                <LayoutDashboardIcon className="ml-1 w-7 h-7"/>
+                {icon}
                 <span className={`overflow-hidden ${isOpen ? "" : "w-0"}`}>{text}</span>
             </div>
         </li>
