@@ -4,7 +4,7 @@ import cardiogramIcon from "../assets/images/electrocardiogram.svg"
 import axios from 'axios';
 
 
-const LoginPage = () => {
+const LoginPage = () => 	{
 	const [data,setData] = useState({});
 	const navigate = useNavigate();
 

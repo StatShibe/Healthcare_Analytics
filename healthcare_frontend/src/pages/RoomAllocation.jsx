@@ -1,10 +1,12 @@
-import  NavigationBar  from "../components/NavigationBar"
+import SideMenu from "../components/SideMenu"
 
 const RoomAllocation = () => {
   return (
-    <div className="h-screen w-screen bg-white font-poppins">
-        <NavigationBar/>
-        <h1>Room Allocation page</h1>
+    <div className="flex flex-row">
+      <SideMenu/>
+      <div className="h-screen w-screen bg-white font-poppins">
+          <h1>Room Allocation page</h1>
+      </div>
     </div>
   )
 }

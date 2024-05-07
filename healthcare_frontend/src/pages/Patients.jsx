@@ -3,9 +3,11 @@ import NavigationBar from "../components/NavigationBar"
 
 const Patients = () => {
   return (
-    <div className="h-screen w-screem bg-white font-poppins">
-        <NavigationBar/>
-        <h1>Patients Details</h1>
+    <div className="flex flex-row">
+      <SideMenu/>
+      <div className="h-screen w-screen bg-white font-poppins">
+          <h1>Patients</h1>
+      </div>
     </div>
   )
 }

@@ -1,10 +1,14 @@
-import NavigationBar from '../components/NavigationBar'
+import SideMenu from "../components/SideMenu"
+
+SideMenu
 
 export const Doctors = () => {
   return (
-    <div className='h-screen w-screen bg-white font-poppins'>
-    <NavigationBar/>
-        <h2>Doctors Page</h2>
+    <div className="flex flex-row">
+      <SideMenu/>
+      <div className="h-screen w-screen bg-white font-poppins">
+          <h1>Doctors</h1>
+      </div>
     </div>
   )
 }
