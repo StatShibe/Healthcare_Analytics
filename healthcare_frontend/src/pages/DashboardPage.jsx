@@ -10,9 +10,9 @@ const DashboardPage = () => {
     <>
 		<div className='flex flex-row'>
 			<SideMenu/>
-			<div className="h-screen w-screen bg-white font-poppins">	
+			<div className="h-fit w-screen bg-white font-poppins">	
 			  	<NavigationBar/>
-				<div className='grid grid-cols-3 grid-rows-3 gap-4 justify-center'>
+				<div className='grid grid-cols-3 grid-rows-1 gap-4 justify-center'>
 					<div className='p-5'>
 						<PieGraph/>
 	        		</div>

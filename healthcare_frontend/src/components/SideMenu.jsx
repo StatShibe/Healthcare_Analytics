@@ -26,7 +26,7 @@ function SideMenu() {
 
   return (
       <>
-        <div>
+        <div className='flex flex-col'>
         	<SideNavBar>
         	  <Link to = "/dashboard"><SideBarItem text = "Dashboard" icon = {<LayoutDashboardIcon className="ml-1 w-7 h-7"/>}/></Link>
         	  <Link to = "/allocation"><SideBarItem text = "Allocation" icon = {<UserSquare2 className="ml-1 w-7 h-7"/>}/></Link>

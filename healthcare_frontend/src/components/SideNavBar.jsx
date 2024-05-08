@@ -6,7 +6,7 @@ const SideBarContext = createContext();
 const SideNavBar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(true);
     return (
-        <div className={`flex h-screen bg-gray-200 ${isOpen ? "w-48" : "w-16"} transition-all duration-300`}>
+        <div className={`flex h-fit bg-gray-200 ${isOpen ? "w-48" : "w-16"} transition-all duration-300`}>
             {/* Sidebar */}
             <div className={`bg-white border-r ${isOpen ? "" : "border-gray-300"} w-full flex flex-col`}>
                 {/* Sidebar Header */}
@@ -32,8 +32,8 @@ export default SideNavBar;
 export const SideBarItem = ({text, icon}) =>{
     const {isOpen} = useContext(SideBarContext)
     return(
-        <li className={`hover:bg-slate-500 hover:text-white overflow-hidden h-10 p-2 cursor-pointer ${isOpen ? "w-64" : "w-16" }`}>
-            <div className="flex flex-row">
+        <li className={`hover:bg-slate-500 hover:text-white overflow-hidden h-15 p-3 cursor-pointer ${isOpen ? "w-64" : "w-16" }`}>
+            <div className="flex flex-row justify-start">
                 {icon}
                 <span className={`overflow-hidden ${isOpen ? "" : "w-0"}`}>{text}</span>
             </div>
