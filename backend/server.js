@@ -8,6 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3500;
 
 const authRouter = require("./routes/auth.router");
+const docRouter = require('./routes/doctors.router');
 
 const db = require("./config/dbConn");
 db.connect().then(()=>{
@@ -26,6 +27,7 @@ app.use(cors({
 }));
 
 app.use("/auth",authRouter);
+app.use("/doctor",docRouter);
 
 
 app.listen(PORT, ()=>{
