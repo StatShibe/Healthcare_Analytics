@@ -39,7 +39,7 @@ router.post('/register',async(req,res)=>{
         console.log(token);
         // res.status(200).send(token);
         res.cookie('jwt',token);
-        res.staus(200).send({accessToken:token});
+        res.status(200).send({accessToken:token});
     }
     else{
         res.status(400).send("User Already exists!");
