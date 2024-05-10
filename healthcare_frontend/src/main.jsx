@@ -11,6 +11,7 @@ import RoomAllocation from './pages/RoomAllocation'
 import Patients from './pages/Patients'
 import Doctors from './pages/Doctors'
 import { Appointments } from './pages/Appointments'
+import DoctorsLoginPage from './pages/DoctorsLoginPage'
 
 const router = createBrowserRouter([
 	{
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
 	{
 		path : "appointments",
 		element : <Appointments/>,
+		errorElement : <ErrorPage/>
+	},{
+		path : "doctorlogin",
+		element : <DoctorsLoginPage/>,
 		errorElement : <ErrorPage/>
 	}
 ]);
