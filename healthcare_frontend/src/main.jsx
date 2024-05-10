@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { AuthProvider } from './context/AuthProvider'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
@@ -10,8 +9,8 @@ import ErrorPage from './pages/ErrorPage'
 import RoomAllocation from './pages/RoomAllocation'
 import Patients from './pages/Patients'
 import Doctors from './pages/Doctors'
-import { Appointments } from './pages/Appointments'
-import DoctorsLoginPage from './pages/DoctorsLoginPage'
+import Appointments from './pages/Appointments'
+import UserRegistration from './pages/UserRegistration'
 
 const router = createBrowserRouter([
 	{
@@ -49,8 +48,8 @@ const router = createBrowserRouter([
 		element : <Appointments/>,
 		errorElement : <ErrorPage/>
 	},{
-		path : "doctorlogin",
-		element : <DoctorsLoginPage/>,
+		path : "createuser",
+		element : <UserRegistration/>,
 		errorElement : <ErrorPage/>
 	}
 ]);

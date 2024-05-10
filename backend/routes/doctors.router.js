@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 router.get('/all',async(req,res)=>{
-    const data = await db.query('SELECT DOCTOR_ID,NAME, SPECIALIZATION, AVAILABILITY FROM DOCTORS');
+    const data = await db.query('SELECT USER_ID,NAME, SPECIALIZATION, ON_DUTY FROM DOCTORS');
     res.status(200).send(data.rows);
 });
 

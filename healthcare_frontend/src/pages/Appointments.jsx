@@ -3,7 +3,7 @@ import SideMenu from '../components/SideMenu'
 import NavigationBar from '../components/NavigationBar'
 import CardComp from '../components/CardComp'
 
-export const Appointments = () => {
+const Appointments = () => {
   const calenderStyling = "m-6 h-[300px] w-[300px]"
   const listStyling = "m-6 h-screen w-[600px]"
   const recencyStyling = "m-6 h-[300px] w-[300px]"
@@ -27,3 +27,5 @@ export const Appointments = () => {
     </div>
   )
 }
+
+export default Appointments;
