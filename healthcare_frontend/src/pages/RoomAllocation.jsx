@@ -1,7 +1,6 @@
 import SideMenu from "../components/SideMenu"
 import NavigationBar from "../components/NavigationBar"
 import CardComp from "../components/CardComp"
-import { Car } from "lucide-react"
 
 const RoomAllocation = () => {
   const cardStyling1 = "m-6 h-[120px] w-[180px] text-center"
