@@ -1,11 +1,13 @@
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 
-const CardComp = ({text, styling}) => {
+const CardComp = ({doctor, styling}) => {
 	return(
 		<Card className={styling}>
-			<CardContent className="font-bold">
-				<h1>{text}</h1>
+			<CardContent>
+				<h1 className="font-bold">{doctor.name}</h1>
+				<h2 className="font-bold">{doctor.specialization}</h2>
+				<p>Years of Experience : <strong>{doctor.years_expr}</strong></p>
 			</CardContent>
 		</Card>
 	)
