@@ -32,12 +32,15 @@ router.post('/login',async(req,res)=>{
 
 router.post('/register',async(req,res)=>{
     // console.log(req.body);
+    //console.log("Hello")
     const result = await db.query('SELECT * from doctors where email = $1',[req.body.email]);
+    //console.log(result);
     if(result.rows.length==0){
+        //console.log("Here!")
         //const hashedPwd = await bcrypt.hash(req.body.password,10);
         //const query = await db.query("Insert into doctors(name,email,specialization,availability) values($1,$2,$3,$4);",[req.body.name,req.body.email,req.body.specialization,req.body.availability]);
         //const userResults = await db.query('SELECT * from doctors where email = $1',[req.body.email]);
-        const doctorQuery = await db.query("insert into doctors(name,email,specialization,availability) values($1,$2,$3,$4);",[req.body.name,req.body.email,req.body.specialization,req.body.availability]);
+        const doctorQuery = await db.query("insert into doctors(name,email,specialization,availability) values($1,$2,$3,$4);",[req.body.doctorname,req.body.email,req.body.specialization,req.body.availability]);
         //const token = jwt.sign({email:req.body.email,user_id:userResults.rows[0].user_id,role: userResults.rows[0].role},process.env.ACCESS_TOKEN_SECRET);
         // res.status(200).send(token);
         //console.log(token);

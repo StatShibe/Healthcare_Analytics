@@ -15,7 +15,8 @@ const DoctorDataInsert = () => {
 
     const handleSubmit = async(event) => {
       event.preventDefault();
-        await axios.post(import.meta.env.VITE_SERVER_URL+'/doctor/register',data,{
+	  console.log(data)
+        await axios.post(import.meta.env.VITE_SERVER_URL+'/dr/register',data,{
           headers: {'content-type': 'application/x-www-form-urlencoded'},
                 withCredentials: true,
                 credentials: 'include'
@@ -31,7 +32,7 @@ const DoctorDataInsert = () => {
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="h-fit w-fit bg-slate-400 p-6 rounded shadow-md font-poppins">
+      <div className="h-fit w-fit bg-red-300 p-6 rounded shadow-md font-poppins">
         <h1 className="text-3xl text-white">Doctor Register Form</h1>
         <br/>
         <form onSubmit={handleSubmit}>

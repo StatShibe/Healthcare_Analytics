@@ -51,7 +51,5 @@ router.post('/logout',async(req,res)=>{
     res.status(200).send("Logged Out");
 })
 
-const docAuthRouter = require('./doctors.auth.router');
-router.use('/doctor',docAuthRouter);
 
 module.exports = router;
