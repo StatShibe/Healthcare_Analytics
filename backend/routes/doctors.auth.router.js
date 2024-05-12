@@ -32,20 +32,22 @@ router.post('/login',async(req,res)=>{
 
 router.post('/register',async(req,res)=>{
     // console.log(req.body);
-    const result = await db.query('SELECT * from users where email = $1',[req.body.email]);
+    const result = await db.query('SELECT * from doctors where email = $1',[req.body.email]);
     if(result.rows.length==0){
-        const hashedPwd = await bcrypt.hash(req.body.password,10);
-        const query = await db.query("Insert into users(name,email,password,role) values($1,$2,$3,$4);",[req.body.name,req.body.email,hashedPwd,"Doctor"]);
-        const userResults = await db.query('SELECT * from users where email = $1',[req.body.email]);
-        const doctorQuery = await db.query("Insert into doctors(name,email,specialization,user_id) values($1,$2,$3,$4);",[req.body.name,req.body.email,req.body.specialization,userResults.rows[0].user_id]);
-        const token = jwt.sign({email:req.body.email,user_id:userResults.rows[0].user_id,role: userResults.rows[0].role},process.env.ACCESS_TOKEN_SECRET);
+        //const hashedPwd = await bcrypt.hash(req.body.password,10);
+        //const query = await db.query("Insert into doctors(name,email,specialization,availability) values($1,$2,$3,$4);",[req.body.name,req.body.email,req.body.specialization,req.body.availability]);
+        //const userResults = await db.query('SELECT * from doctors where email = $1',[req.body.email]);
+        const doctorQuery = await db.query("insert into doctors(name,email,specialization,availability) values($1,$2,$3,$4);",[req.body.name,req.body.email,req.body.specialization,req.body.availability]);
+        //const token = jwt.sign({email:req.body.email,user_id:userResults.rows[0].user_id,role: userResults.rows[0].role},process.env.ACCESS_TOKEN_SECRET);
         // res.status(200).send(token);
-        console.log(token);
-        res.cookie('jwt',token);
-        res.status(200).send({accessToken:token});
+        //console.log(token);
+        //res.cookie('jwt',token);
+        //res.status(200).send({accessToken:token});
+        res.status(200)
+
     }
     else{
-        res.status(400).send("User Already exists!");
+        res.status(400).send("Doctor Already exists!");
     }
 });
 
