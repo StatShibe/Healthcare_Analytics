@@ -33,7 +33,7 @@ router.post('/register',async(req,res)=>{
     const result = await db.query('SELECT * from users where email = $1',[req.body.email]);
     if(result.rows.length==0){
         const hashedPwd = await bcrypt.hash(req.body.password,10);
-        const query = await db.query("Insert into users(name,email,password,role) values($1,$2,$3,$4);",[req.body.name,req.body.email,hashedPwd,'Patient']);
+        const query = await db.query("Insert into users(name,email,password,role) values($1,$2,$3,$4);",[req.body.name,req.body.email,hashedPwd,req.body.role]);
         console.log(query.rows);
         const token = jwt.sign({email:req.body.email},process.env.ACCESS_TOKEN_SECRET);
         console.log(token);
