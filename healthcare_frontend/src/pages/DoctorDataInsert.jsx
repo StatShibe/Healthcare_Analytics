@@ -16,7 +16,7 @@ const DoctorDataInsert = () => {
     const handleSubmit = async(event) => {
       event.preventDefault();
 	  console.log(data)
-        await axios.post(import.meta.env.VITE_SERVER_URL+'/dr/register',data,{
+        await axios.post(import.meta.env.VITE_SERVER_URL+'/doctor/register',data,{
           headers: {'content-type': 'application/x-www-form-urlencoded'},
                 withCredentials: true,
                 credentials: 'include'

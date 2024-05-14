@@ -1,11 +1,12 @@
 import NavigationBar from "../components/NavigationBar"
 import SideMenu from "../components/SideMenu" 
-import CardComp from "../components/CardComp"
+import Card  from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const Doctors = () => {
-  const cardStyles = "m-6 h-[160px] w-3/4 hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white";
+  const cardStyles = "m-6 h-[80px] w-3/4 hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white";
   const [doctors,setDoctors] = useState([]);
 
   const getData= async() =>{
@@ -27,12 +28,15 @@ export const Doctors = () => {
       <div className="flex flex-col items-center">
         {
           doctors?.map((doctor,index)=>{
-            return(<CardComp doctor={doctor} styling={cardStyles}/>);
-          })
+            return( 
+					<Card key = {index} className={cardStyles}>
+                    	<CardContent>
+                  			<h1>{doctor.name}</h1>
+                  			<p>{doctor.specialization}</p>
+                		</CardContent>
+              		</Card>
+         	)})
         }
-        <CardComp name={"Dr. Doom"} styling={cardStyles}/>
-        <CardComp name={"Dr. Strange"} styling={cardStyles}/>
-        <CardComp name = {"Dr. Banner"} styling={cardStyles}/>
       </div>
       </div>
     </div>
