@@ -6,7 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export const Doctors = () => {
-  const cardStyles = "m-6 h-[80px] w-3/4 hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white";
+  const cardStyles = "m-6 h-[120px] w-3/4 hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white";
   const [doctors,setDoctors] = useState([]);
 
   const getData= async() =>{
@@ -31,8 +31,10 @@ export const Doctors = () => {
             return( 
 					<Card key = {index} className={cardStyles}>
                     	<CardContent>
-                  			<h1>{doctor.name}</h1>
-                  			<p>{doctor.specialization}</p>
+                  			<h1><strong>{doctor.name}</strong></h1>
+                  			<p><strong>{doctor.specialization}</strong></p>
+                        <p>Years of Experience : <strong>{doctor.years_expr} </strong></p>
+                        <p>Email : {doctor.email}</p>
                 		</CardContent>
               		</Card>
          	)})
