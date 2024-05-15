@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS public.outpatients
 (
-    appointment_id integer,
+    appointment_id serial,
     patient_id integer,
     appointment_date date,
     appointment_reason "char",

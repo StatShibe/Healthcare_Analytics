@@ -12,6 +12,7 @@ import Doctors from './pages/Doctors'
 import Appointments from './pages/Appointments'
 import UserRegistration from './pages/UserRegistration'
 import DoctorDataInsert from './pages/DoctorDataInsert'
+import InPatientRegistration from './pages/InPatientRegistration'
 
 const router = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
 	},{
 		path : "insertdoctor",
 		element : <DoctorDataInsert/>,
+		errorElement : <ErrorPage/>
+	},{
+		path : "createinpatient",
+		element : <InPatientRegistration/>,
 		errorElement : <ErrorPage/>
 	}
 ]);

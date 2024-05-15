@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS public.inpatients
 (
-    admission_id integer NOT NULL DEFAULT nextval('inpatients_admission_id_seq'::regclass),
+    admission_id serial,
     patient_id integer NOT NULL,
     room_id integer NOT NULL,
     admission_date date NOT NULL,

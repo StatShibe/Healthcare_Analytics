@@ -7,7 +7,7 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/details',async(req,res)=>{
-    const result = await db.query("SELECT * FROM ROOMS WHERE AVAILABILItY ='Y'");
+    const result = await db.query("SELECT * FROM ROOMS WHERE AVAILABILItY ='Y' ORDER BY ROOM_ID");
     res.status(200).send(result.rows);
 });
 
