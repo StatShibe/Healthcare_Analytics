@@ -35,7 +35,7 @@ const RoomAllocation = () => {
 		<SideMenu/>
 		<div className="h-screen w-screen bg-white font-poppins">
 			<NavigationBar/>
-			<div className="flex flex-row justify-left">
+			<div className="flex flex-row justify-center">
 
 				<Card className={cardStyling2}>
 					<CardContent>
@@ -59,20 +59,22 @@ const RoomAllocation = () => {
 				</Card>
 
 			</div>
-			<div className="flex flex-row justify-around">
+			<div className="flex flex-row justify-center">
 			{
 				data?.map((row,index)=>{
 					return(
-								<Card key={index}>
-									<CardContent>
-										<h1 className="font-bold">Room ID : {row.room_id}</h1>
-										<p>Room Area : {row.room_area}</p>
-										<p>Available Occupancy : {row.curr_avbl_occ_capacity}</p>
-										<p>Total Occupancy : {row.total_occ_capacity}</p>
-										<p>Rent Amount : {row.rent_amt}</p>
-										<button onClick={()=>{navigate('/createinpatient');}}>Book Room</button>
-									</CardContent>
-								</Card>
+								<div className="p-6 h-fit w-fit">
+									<Card key={index}>
+										<CardContent>
+											<h1 className="font-bold">Room ID : {row.room_id}</h1>
+											<p>Room Area : {row.room_area}</p>
+											<p>Available Occupancy : {row.curr_avbl_occ_capacity}</p>
+											<p>Total Occupancy : {row.total_occ_capacity}</p>
+											<p>Rent Amount : {row.rent_amt}</p><br/>
+											<button onClick={()=>{navigate('/createinpatient');}} className="bg-sky-100 p-2 rounded-sm hover:bg-pink-200 hover:scale-110  hover:transition-all">Book Room</button>
+										</CardContent>
+									</Card>
+								</div>
 								)
 							}
 						)

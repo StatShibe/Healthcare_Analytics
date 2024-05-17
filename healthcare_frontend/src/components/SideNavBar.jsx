@@ -33,7 +33,7 @@ export const SideBarItem = ({text, icon}) =>{
     const {isOpen} = useContext(SideBarContext)
     return(
         <li className={`hover:bg-slate-500 hover:text-white overflow-hidden h-15 p-3 cursor-pointer ${isOpen ? "w-64" : "w-16" }`}>
-            <div className="flex flex-row justify-start">
+            <div className="flex flex-row justify-start hover:scale-110 hover:transition-all">
                 {icon}
                 <span className={`overflow-hidden ${isOpen ? "" : "w-0"}`}>{text}</span>
             </div>
