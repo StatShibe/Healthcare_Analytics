@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const morgan = require("morgan");
+const cron = require('node-cron');
 
 const app = express();
 const PORT = process.env.PORT || 3500;
@@ -12,14 +13,19 @@ const docRouter = require('./routes/doctors.router');
 const roomsRouter = require("./routes/rooms.router");
 const inPatientRouter = require('./routes/inpatient.router');
 
+const dischargeUpdate = require('./discharge-update');
+
+
 const db = require("./config/dbConn");
 db.connect().then(()=>{
     console.log("Postgres database is connected!");
-})
+});
+
 
 app.get('/',(req,res)=>{
     res.send("Nothing here!");
-})
+});
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(morgan('tiny'));
@@ -34,6 +40,12 @@ app.use("/rooms",roomsRouter);
 app.use("/inpatient",inPatientRouter);
 
 
+// Schedule a task to run every day at 8:30 PM
+cron.schedule('30 20 * * *', () => {
+    dischargeUpdate();
+});
+
 app.listen(PORT, ()=>{
     console.log(`Server is running at PORT ${PORT}`);
+    dischargeUpdate();
 })
