@@ -3,7 +3,7 @@ const db = require('../config/dbConn');
 const router = express.Router();
 
 router.get('/',(req,res)=>{
-    res.send("InPatient Route");
+    res.send("InPatients Route");
 });
 
 router.post('/add',async(req,res)=>{

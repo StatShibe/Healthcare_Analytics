@@ -19,7 +19,7 @@ router.get('/today',async(req,res)=>{
 router.post('/add', async(req, res)=>{
     const data = req.body;
     console.log(data);
-	await db.query('INSERT INTO OUTPATIENTS(PATIENT_ID,APPOINTMENT_DATE, APPOINTMENT_REASON, DOCTOR_ID, TEST_MSRMNT_DTL, PRESCRIPTION_DTL) VALUES($1,$2,$3,$4,$5,$6)',[data.patient_id, data.appointment_date, data.appointment_reason, data.doctor_id, data.test_msrmnt_dtl, data.prescription_dtl]);
+	await db.query('INSERT INTO OUTPATIENTS(PATIENT_ID,APPOINTMENT_DATE, APPOINTMENT_TIME, APPOINTMENT_REASON, DOCTOR_ID, TEST_MSRMNT_DTL, PRESCRIPTION_DTL) VALUES($1,$2,$3,$4,$5,$6,$7)',[data.patient_id, data.appointment_date, data.appointment_time, data.appointment_reason, data.doctor_id, data.test_msrmnt_dtl, data.prescription_dtl]);
     res.status(201).send("Appointment Created!");
 })
 

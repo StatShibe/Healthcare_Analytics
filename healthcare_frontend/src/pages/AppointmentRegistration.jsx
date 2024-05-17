@@ -47,8 +47,12 @@ const AppointmentRegistration = () => {
           <input type="date" name="appointment_date" className = {inputStyling} onChange={handleChange}/>
         </div>
         <div className="flex flex-row justify-between p-4">
+          <label htmlFor="appointment_time" className={labelStyling}>Appointment Time : </label>
+          <input type="time" name="appointment_time" className = {inputStyling} onChange={handleChange}/>
+        </div>
+        <div className="flex flex-row justify-between p-4">
           <label htmlFor="appointment_reason" className={labelStyling}>Appointment Reason : </label>
-          <input type="text" name="adppointment_reason" className = {inputStyling} onChange={handleChange}/>
+          <input type="text" name="appointment_reason" className = {inputStyling} onChange={handleChange}/>
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="doctor_id" className={labelStyling}>Doctor ID : </label>

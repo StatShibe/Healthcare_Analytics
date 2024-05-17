@@ -34,9 +34,10 @@ const Appointments = () => {
                   return(
                   <Card className={listStyling}>
                     <CardContent>
-                      <h1 className="font-bold">Appointment ID :{row?.appointment_id}</h1>
+                      <h1 className="font-bold">Appointment ID : {row?.appointment_id}</h1>
                       <p>Patient ID : {row?.patient_id}</p>
-                      <p>Appointment Date : {row?.appointment_date}</p>
+                      <p>Appointment Date : {new Date(row?.appointment_date).toLocaleDateString()}</p>
+                      <p>Appointment Time : {(row?.appointment_time)?.split('+')[0]}</p>
                       <p>Appointment Reason : {row?.appointment_reason}</p>
                       <p>Doctor ID : {row?.doctor_id}</p>
                       <p>Test Measurements : {row?.test_msrmnt_dtl || '-'}</p>
