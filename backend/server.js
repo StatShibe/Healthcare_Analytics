@@ -12,6 +12,7 @@ const authRouter = require("./routes/auth.router");
 const docRouter = require('./routes/doctors.router');
 const roomsRouter = require("./routes/rooms.router");
 const inPatientRouter = require('./routes/inpatient.router');
+const appointmentRouter = require('./routes/appointments.router');
 
 const dischargeUpdate = require('./discharge-update');
 
@@ -38,9 +39,10 @@ app.use("/auth",authRouter);
 app.use("/doctor",docRouter);
 app.use("/rooms",roomsRouter);
 app.use("/inpatient",inPatientRouter);
+app.use("/appointments",appointmentRouter);
 
 
-// Schedule a task to run every day at 8:30 PM
+// Discharge scheduled to happen every day at 8:30 PM
 cron.schedule('30 20 * * *', () => {
     dischargeUpdate();
 });
