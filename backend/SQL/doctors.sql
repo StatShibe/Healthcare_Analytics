@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS public.doctors
     name character varying(50) COLLATE pg_catalog."default" NOT NULL,
     email character varying(50) COLLATE pg_catalog."default" NOT NULL,
     specialization character varying(50) COLLATE pg_catalog."default",
-    user_id integer NOT NULL,
+    doctor_id integer NOT NULL,
     dob date,
     gender "char",
     years_expr integer,

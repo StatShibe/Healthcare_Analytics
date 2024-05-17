@@ -9,7 +9,7 @@ router.get('/',(req,res)=>{
 });
 
 router.get('/all',async(req,res)=>{
-    const data = await db.query("SELECT USER_ID,NAME, EMAIL, SPECIALIZATION, YEARS_EXPR, GENDER, ON_DUTY FROM DOCTORS WHERE ON_DUTY = $1",['Y']);
+    const data = await db.query("SELECT DOCTOR_ID,NAME, EMAIL,DOB, SPECIALIZATION, YEARS_EXPR, GENDER, ON_DUTY, EMP_IND FROM DOCTORS WHERE ON_DUTY = $1",['Y']);
     res.status(200).send(data.rows);
 });
 
@@ -17,7 +17,7 @@ router.post('/register',async(req,res)=>{
 
     const result = await db.query('SELECT * from doctors where email = $1',[req.body.email]);
     if(result.rows.length==0){
-        const doctorQuery = await db.query("insert into doctors(name,email,specialization,on_duty) values($1,$2,$3,$4);",[req.body.doctorname,req.body.email,req.body.specialization,req.body.availability]);
+        const doctorQuery = await db.query("insert into doctors(name,email,specialization,dob,years_expr,gender,on_duty, emp_ind) values($1,$2,$3,$4,$5,$6,$7,$8);",[req.body.doctorname,req.body.email,req.body.specialization,req.body.dob, req.body.years_expr, req.body.gender, req.body.on_duty, req.body.emp_ind]);
         res.sendStatus(200)
     }
     else{

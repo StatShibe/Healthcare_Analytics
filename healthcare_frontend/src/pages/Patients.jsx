@@ -26,9 +26,6 @@ const Patients = () => {
       <div className="h-screen w-screen bg-white font-poppins">
           <NavigationBar/>  
           <div className="flex flex-row justify-around">
-              <CardComp text = {"Patients Search"} styling = {patientStyling}/>
-              <CardComp text = {"Patients Display"} styling = {displayStyling}/>
-
               {
                 data?.map((row,index)=>{
                   return(

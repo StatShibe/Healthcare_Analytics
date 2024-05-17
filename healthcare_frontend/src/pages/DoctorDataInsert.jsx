@@ -58,11 +58,34 @@ const DoctorDataInsert = () => {
 				<option value={"Gynaecologist"}>Gynaecologist</option>
 		  </select>
         </div>
-		<div className="flex flex-row justify-between p-4">
-          <label htmlFor="availability" className={labelStyling}>Availability</label>
-          Yes <input type = "radio" value = "Y" name = "availability" className="hover:scale-150" onChange={handleChange} required/>
-          No <input type = "radio" value = "N" name = "availability" className="hover:scale-150" onChange={handleChange}/>
+        <div className="flex flex-row justify-between p-4">
+          <label htmlFor="dob" className={labelStyling}>Date Of Birth:</label>
+          <input type="date" name="dob" className = {inputStyling} onChange={handleChange}/>
         </div>
+        <div>
+        <label htmlFor="gender" className={labelStyling}>Gender</label>
+          Male <input type = "radio" value = "M" name = "gender" className="hover:scale-150" onChange={handleChange} required/>
+          Female <input type = "radio" value = "F" name = "gender" className="hover:scale-150" onChange={handleChange}/>
+        </div>
+        <div className="flex flex-row justify-between p-4">
+          <label htmlFor="years_expr" className={labelStyling}>Years Of Experience:</label>
+          <input type="text" name="years_expr" className = {inputStyling} onChange={handleChange}/>
+        </div>
+        <div className="flex flex-row justify-between p-4">
+          <label htmlFor="address" className={labelStyling}>Address:</label>
+          <textarea name="address" className = {inputStyling} onChange={handleChange}/>
+        </div>
+		<div className="flex flex-row justify-between p-4">
+          <label htmlFor="on_duty" className={labelStyling}>On Duty</label>
+          Yes <input type = "radio" value = "Y" name = "on_duty" className="hover:scale-150" onChange={handleChange} required/>
+          No <input type = "radio" value = "N" name = "on_duty" className="hover:scale-150" onChange={handleChange}/>
+        </div>
+        <div>
+        <label htmlFor="emp_ind" className={labelStyling}>Employment Indicator</label>
+          Yes <input type = "radio" value = "Y" name = "emp_ind" className="hover:scale-150" onChange={handleChange} required/>
+          No <input type = "radio" value = "N" name = "emp_ind" className="hover:scale-150" onChange={handleChange}/>
+        </div>
+        
         <br/>
         <input type = "submit" className="text-blue-950 border-solid h-fit w-fit bg-white p-2 rounded hover:bg-gradient-to-r from-sky-300 to-white hover:transition-all hover:scale-110 hover:border-solid hover:border-black border-2"/>
         </form>
