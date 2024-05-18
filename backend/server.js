@@ -13,6 +13,7 @@ const docRouter = require('./routes/doctors.router');
 const roomsRouter = require("./routes/rooms.router");
 const inPatientRouter = require('./routes/inpatient.router');
 const appointmentRouter = require('./routes/appointments.router');
+const treatmentRouter = require('./routes/treatments.router');
 
 const dischargeUpdate = require('./discharge-update');
 
@@ -40,6 +41,7 @@ app.use("/doctor",docRouter);
 app.use("/rooms",roomsRouter);
 app.use("/inpatient",inPatientRouter);
 app.use("/appointments",appointmentRouter);
+app.use("/treatments",treatmentRouter);
 
 
 // Discharge scheduled to happen every day at 8:30 PM

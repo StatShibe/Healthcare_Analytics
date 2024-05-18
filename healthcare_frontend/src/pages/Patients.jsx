@@ -1,6 +1,5 @@
 import NavigationBar from "../components/NavigationBar"
 import SideMenu from "../components/SideMenu"
-import CardComp from "../components/CardComp"
 import { Card, CardContent } from "@mui/material"
 import { useState, useEffect } from "react"
 import axios from "axios"

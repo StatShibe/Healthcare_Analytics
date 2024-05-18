@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Card, CardContent } from '@mui/material'
 
-const Appointments = () => {
+const Treatments = () => {
   const calenderStyling = "m-6 h-[300px] w-[300px]"
   const listStyling = "m-6 h-screen w-[600px]"
   const recencyStyling = "m-6 h-[300px] w-[300px]"
@@ -13,7 +13,7 @@ const Appointments = () => {
   const [data,setData] = useState([]);
 
   useEffect(()=>{
-    axios.get(import.meta.env.VITE_SERVER_URL+'/appointments/all',{withCredentials:true}).then((response)=>{
+    axios.get(import.meta.env.VITE_SERVER_URL+'/treatments/all',{withCredentials:true}).then((response)=>{
       setData(response.data);
       console.log(response.data);
     })
@@ -34,12 +34,12 @@ const Appointments = () => {
                   return(
                   <Card className={listStyling}>
                     <CardContent>
-                      <h1 className="font-bold">Appointment ID : {row?.appointment_id}</h1>
+                      <h1 className="font-bold">Treatment ID : {row?.treatment_id}</h1>
                       <p>Patient ID : {row?.patient_id}</p>
-                      <p>Appointment Date : {new Date(row?.appointment_date).toLocaleDateString()}</p>
-                      <p>Appointment Time : {(row?.appointment_time)?.split('+')[0]}</p>
-                      <p>Appointment Reason : {row?.appointment_reason}</p>
+                      <p>Admission ID : {row?.admission_id}</p>
+                      <p>Treatment Date : {new Date(row?.treatment_date).toLocaleDateString()}</p>
                       <p>Doctor ID : {row?.doctor_id}</p>
+                      <p>Care Taker : {row?.care_taker_dtl}</p>
                       <p>Test Measurements : {row?.test_msrmnt_dtl || '-'}</p>
                       <p>Prescription : {row?.prescription_dtl}</p>
                     </CardContent>
@@ -56,4 +56,4 @@ const Appointments = () => {
   )
 }
 
-export default Appointments;
+export default Treatments;

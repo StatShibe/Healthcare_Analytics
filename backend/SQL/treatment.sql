@@ -1,13 +1,18 @@
+-- Table: public.treatments
+
+-- DROP TABLE IF EXISTS public.treatments;
+
 CREATE TABLE IF NOT EXISTS public.treatments
 (
-    patient_id integer NOT NULL,
     admission_id integer,
     treatment_date date,
-    visited_doctor_id integer NOT NULL,
+    doctor_id integer NOT NULL,
     care_taker_dtl character varying(100) COLLATE pg_catalog."default",
     test_msrmnt_dtl character varying(100) COLLATE pg_catalog."default",
     discharge_ind "char" NOT NULL,
-    CONSTRAINT treatments_pkey PRIMARY KEY (patient_id)
+    patient_id integer NOT NULL,
+    treatment_id integer NOT NULL DEFAULT nextval('treatments_treatment_id_seq'::regclass),
+    CONSTRAINT treatments_pkey PRIMARY KEY (treatment_id)
 )
 
 TABLESPACE pg_default;
