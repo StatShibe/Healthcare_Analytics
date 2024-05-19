@@ -36,16 +36,24 @@ router.get('/getData/:id', async (req, res) => {
     }
 });
 
-router.put('/update', async(req, res) => {
-    try{
-        const result = await db.query('update doctors set name = $1,email = $2,specialization = $3,dob = $4,years_expr = $5,address = $6,gender = $7,on_duty = $8, emp_ind = $9 where doctor_id = $10',[req.body.name,req.body.email,req.body.specialization,req.body.dob,req.body.years_expr,req.body.address,req.body.gender,req.body.on_duty, req.body.emp_ind, req.body.doctor_id])
+router.put('/update', async (req, res) => {
+    try {
+        const { name, email, specialization, dob, years_expr, address, gender, on_duty, emp_ind, doctor_id } = req.body;
+        console.log('Received data for update:', req.body);
+
+        const result = await db.query(
+            'UPDATE doctors SET name = $1, email = $2, specialization = $3, dob = $4, years_expr = $5, address = $6, gender = $7, on_duty = $8, emp_ind = $9 WHERE doctor_id = $10',
+            [name, email, specialization, dob, years_expr, address, gender, on_duty, emp_ind, doctor_id]
+        );
+
+        console.log(result)
+
         res.status(200).json({ message: 'Doctor updated successfully', result: result });
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: 'Failed to update doctor' });
     }
-})
-
+});
 
 router.post('/register',async(req,res)=>{
 
