@@ -23,8 +23,5 @@ router.post('/add', async(req, res)=>{
     res.status(201).send("Appointment Created!");
 })
 
-router.get('/getappointments', async(res, req)=>{
-	
-})
 
 module.exports = router;
