@@ -30,13 +30,13 @@ const Patients = () => {
                   return(
                   <Card className={displayStyling}>
                     <CardContent>
-                      <h1 className="font-bold">Admission ID :{row?.admission_id}</h1>
+                      <h1 className="font-bold">Admission ID : {row?.admission_id}</h1>
                       <p>Patient ID : {row?.patient_id}</p>
                       <p>Room ID : {row?.room_id}</p>
-                      <p>Admission Date : {row?.admission_date}</p>
+                      <p>Admission Date : {new Date(row?.admission_date)?.toLocaleDateString()}</p>
                       <p>Admission Reason : {row?.admission_reason}</p>
                       <p>Doctor ID : {row?.primary_doctor_id}</p>
-                      <p>Discharge Date : {row?.discharge_date}</p>
+                      <p>Discharge Date : {new Date(row?.discharge_date)?.toLocaleDateString()}</p>
                     </CardContent>
                   </Card>
                 )})

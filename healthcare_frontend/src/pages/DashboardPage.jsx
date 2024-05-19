@@ -6,6 +6,7 @@ import PieGraph from '../components/Charts/Pie'
 import SideMenu from '../components/SideMenu'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import DailySummaryBarGraph from '../components/Charts/DailySummaryBar'
 
 
 const DashboardPage = () => {
@@ -49,6 +50,9 @@ const DashboardPage = () => {
 						</div>
 						<div className='h-[200px]'>
 							<LineGraph2/>
+						</div>
+						<div className='h-[200px]'>
+							<DailySummaryBarGraph />
 						</div>
 					</div>
 				</div>
