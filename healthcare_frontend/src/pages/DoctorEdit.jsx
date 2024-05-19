@@ -37,18 +37,20 @@ const DoctorEdit = () => {
     }, [doctor_id]);
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const name = event.target.name;
+		const value = event.target.value;
         setData((prevData) => ({
             ...prevData,
             [name]: value
         }));
-    };
+    };	
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+		console.log(data)
         try {
             const response = await axios.put(`${import.meta.env.VITE_SERVER_URL}/doctor/update`, data, {
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 withCredentials: true,
                 credentials: 'include'
             });
