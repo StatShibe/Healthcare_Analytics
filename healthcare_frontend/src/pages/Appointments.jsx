@@ -5,7 +5,7 @@ import axios from 'axios'
 import { Card, CardContent } from '@mui/material'
 
 const Appointments = () => {
-  const listStyling = "m-6 h-screen w-[600px]"
+  const listStyling = "m-6 h-fit w-fit"
   const [data,setData] = useState([]);
 
   useEffect(()=>{
@@ -19,8 +19,7 @@ const Appointments = () => {
       <SideMenu/>
       <div className="h-screen w-screen bg-white font-poppins">
           <NavigationBar/>
-          <div className='grid grid-cols-2 grid-rows-2 h-screen w-fit'>
-            <div className='col-row-2 w-[600px] h-fit'>
+          <div className='flex flex-col items-center'>
               {
                 data?.map((row,index)=>{
                   return(
@@ -38,7 +37,6 @@ const Appointments = () => {
                   </Card>
                 )})
               }
-            </div>
           </div>
       </div>
     </div>
