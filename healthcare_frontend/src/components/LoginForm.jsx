@@ -9,7 +9,6 @@ const LOGIN_URL = 'http://localhost:3500/auth/login';
 const LoginForm = () => {
     const {setAuth} = useAuth();
     const userRef = useRef();
-    //const errRef = useRef();
     const navigate = useNavigate();
 
     const [user, setUser] = useState('');

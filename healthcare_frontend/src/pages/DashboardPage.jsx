@@ -1,6 +1,7 @@
 import React from 'react'
 import  NavigationBar from '../components/NavigationBar'
 import LineGraph from '../components/Charts/Line'
+import LineGraph2 from '../components/Charts/Line2'
 import PieGraph from '../components/Charts/Pie'
 import SideMenu from '../components/SideMenu'
 import { useState, useEffect } from 'react'
@@ -47,7 +48,7 @@ const DashboardPage = () => {
 							<LineGraph/>
 						</div>
 						<div className='h-[200px]'>
-							<LineGraph/>
+							<LineGraph2/>
 						</div>
 					</div>
 				</div>

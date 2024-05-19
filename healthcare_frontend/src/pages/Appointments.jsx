@@ -19,7 +19,7 @@ const Appointments = () => {
       <SideMenu/>
       <div className="h-screen w-screen bg-white font-poppins">
           <NavigationBar/>
-          <div className='flex flex-col items-center'>
+          <div className='flex flex-col items-left'>
               {
                 data?.map((row,index)=>{
                   return(

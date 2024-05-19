@@ -34,12 +34,12 @@ const LoginPage = () => 	{
 					<form onSubmit={handleLogin}>
 						<div className="flex justify-around">
 							<label className="text-white" htmlFor = "emailid">Email ID</label>
-							<input className ="h-7 w-[200px] border-2 rounded-lg" id = "emailid" type = "email" name="email" required onChange={handleChange}/>
+							<input className ="h-7 w-[200px] border-2 rounded-lg p-2" id = "emailid" type = "email" name="email" required onChange={handleChange}/>
 						</div>
 						<br/>
 						<div className="flex justify-around">
 							<label className = "text-white" htmlFor = "password">Password</label>
-							<input className="h-7 w-[200px] border-2 rounded-lg" id = "password" type = "password" name= "password" required onChange={handleChange}/>
+							<input className="h-7 w-[200px] border-2 rounded-lg p-2" id = "password" type = "password" name= "password" required onChange={handleChange}/>
 						</div>
 						<br/>
 						<div className="ml-6">

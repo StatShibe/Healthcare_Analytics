@@ -27,13 +27,13 @@ const DoctorDataInsert = () => {
         });
   }
 
-  const inputStyling = "w-3/4 h-[30px] rounded-md focus:scale-110 transition-all p-2"
-  const labelStyling = "text-lg text-white" 
+  const inputStyling = "w-[300px] h-[30px] rounded-md focus:scale-110 transition-all p-2"
+  const labelStyling = "text-lg" 
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="h-fit w-fit bg-red-300 p-6 rounded shadow-md font-poppins">
-        <h1 className="text-3xl text-white">Doctor Register Form</h1>
+      <div className="h-fit w-5/8 bg-red-300 p-6 rounded shadow-md font-poppins">
+        <h1 className="text-3xl">Doctor Registration Form</h1>
         <br/>
         <form onSubmit={handleSubmit}>
   
@@ -48,7 +48,7 @@ const DoctorDataInsert = () => {
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="specialization" className={labelStyling}>Specialization</label>
-          <select name = "specialization" onChange={handleChange} className = "w-1/2 h-[30px] rounded-md focus:scale-110 transition-all" required>
+          <select name = "specialization" onChange={handleChange} className = "w-[300px] h-[30px] rounded-md focus:scale-110 transition-all" required>
 		  		<option value={"General Consultant"}>General Consultant</option>
 				<option value={"Orthologist"}>Orthologist</option>
 				<option value = {"Neurologist"}>Neurologist</option>
@@ -62,10 +62,12 @@ const DoctorDataInsert = () => {
           <label htmlFor="dob" className={labelStyling}>Date Of Birth:</label>
           <input type="date" name="dob" className = {inputStyling} onChange={handleChange}/>
         </div>
-        <div>
-        <label htmlFor="gender" className={labelStyling}>Gender</label>
-          Male <input type = "radio" value = "M" name = "gender" className="hover:scale-150" onChange={handleChange} required/>
-          Female <input type = "radio" value = "F" name = "gender" className="hover:scale-150" onChange={handleChange}/>
+        <div className="flex flex-row justify-between p-4">
+          <label htmlFor="gender" className={labelStyling}>Gender</label>
+          <div className="flex flex-row w-[300px] justify-around">
+            Male <input type = "radio" value = "M" name = "gender" className="hover:scale-150" onChange={handleChange} required/>
+            Female <input type = "radio" value = "F" name = "gender" className="hover:scale-150" onChange={handleChange}/>
+          </div>
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="years_expr" className={labelStyling}>Years Of Experience:</label>
@@ -77,13 +79,17 @@ const DoctorDataInsert = () => {
         </div>
 		<div className="flex flex-row justify-between p-4">
           <label htmlFor="on_duty" className={labelStyling}>On Duty</label>
-          Yes <input type = "radio" value = "Y" name = "on_duty" className="hover:scale-150" onChange={handleChange} required/>
-          No <input type = "radio" value = "N" name = "on_duty" className="hover:scale-150" onChange={handleChange}/>
+         <div className="flex flex-row w-[300px] justify-around">
+            Yes <input type = "radio" value = "Y" name = "on_duty" className="hover:scale-150" onChange={handleChange} required/>
+            No <input type = "radio" value = "N" name = "on_duty" className="hover:scale-150" onChange={handleChange}/>
+         </div>
         </div>
-        <div>
+        <div className="flex flex-row justify-between p-4">
         <label htmlFor="emp_ind" className={labelStyling}>Employment Indicator</label>
-          Yes <input type = "radio" value = "Y" name = "emp_ind" className="hover:scale-150" onChange={handleChange} required/>
-          No <input type = "radio" value = "N" name = "emp_ind" className="hover:scale-150" onChange={handleChange}/>
+         <div className="flex flex-row w-[300px] justify-around">
+            Yes <input type = "radio" value = "Y" name = "emp_ind" className="hover:scale-150" onChange={handleChange} required/>
+            No <input type = "radio" value = "N" name = "emp_ind" className="hover:scale-150" onChange={handleChange}/>
+         </div>
         </div>
         
         <br/>
