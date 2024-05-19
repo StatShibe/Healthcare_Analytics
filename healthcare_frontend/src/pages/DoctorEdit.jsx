@@ -56,7 +56,7 @@ const DoctorEdit = () => {
             });
             console.log(response.data);
             console.log("Updated successfully");
-            navigate('/');
+            navigate('/doctors');
         } catch (error) {
             console.error('Error updating doctor data:', error);
         }

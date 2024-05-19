@@ -23,7 +23,7 @@ const DoctorDataInsert = () => {
         }).then((response)=>{
           console.log(response.data)
           console.log("Inserted successfully");
-          navigate('/');
+          navigate('/doctors');
         });
   }
 
