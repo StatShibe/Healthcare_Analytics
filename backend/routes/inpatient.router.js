@@ -23,6 +23,11 @@ router.get('/:id',async(req,res)=>{
     res.status(200).send(result.rows[0]);
 })
 
+router.get('/all', async(req, res)=>{
+    const result = await db.query('SELECT * FROM INPATIENTS');
+    res.status(200).send(result.rows);
+})
+
 router.post('/edit/:id',async(req,res)=>{
     const result = await db.query('UPDATE INPATIENTS SET PATIENT_ID = $1, ROOM_ID = $2, ADMISSION_DATE = $3, ADMISSION_REASON = $4, PRIMARY_DOCTOR_ID = $5, DISCHARGE_DATE =$6 WHERE ADMISSION_ID = $7',[data.patient_id, data.room_id, data.admission_date, data.admission_reason, data.doctor_id, data.discharge_date, req.params.id]);
     res.status(200).send(result.rows[0]);

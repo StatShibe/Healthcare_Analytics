@@ -71,7 +71,7 @@ const RoomAllocation = () => {
 											<p>Available Occupancy : {row.curr_avbl_occ_capacity}</p>
 											<p>Total Occupancy : {row.total_occ_capacity}</p>
 											<p>Rent Amount : {row.rent_amt}</p><br/>
-											<button onClick={()=>{navigate('/createinpatient');}} className="bg-sky-100 p-2 rounded-sm hover:bg-pink-200 hover:scale-110  hover:transition-all">Book Room</button>
+											<button onClick={()=>{navigate(`/createinpatient/${row.room_id}`);}} className="bg-sky-100 p-2 rounded-sm hover:bg-pink-200 hover:scale-110  hover:transition-all">Book Room</button>
 										</CardContent>
 									</Card>
 								</div>

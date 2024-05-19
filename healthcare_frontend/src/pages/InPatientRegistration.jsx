@@ -1,12 +1,13 @@
 import { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 
 const InPatientRegistration = () => {
 
   const navigate = useNavigate();
 
-    const [data, setData] = useState({});
+
+    const [data, setData] = useState({room_id : useParams().room_id});
 
     const handleChange = (event) => {
       const name = event.target.name;
@@ -23,7 +24,7 @@ const InPatientRegistration = () => {
                 credentials: 'include'
         }).then((response)=>{
           console.log(response.data)
-          navigate('/');
+          navigate('/allocation');
         });
   }
 
@@ -44,7 +45,7 @@ const InPatientRegistration = () => {
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="room_id" className={labelStyling}>Room ID : </label>
-          <input type="text" name="room_id" className = {inputStyling} onChange={handleChange}/>
+          <input type="text" name="room_id" className = {inputStyling} value = {data.room_id} onChange={handleChange}/>
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="admission_date" className={labelStyling}>Admission Date : </label>

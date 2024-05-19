@@ -16,12 +16,4 @@ router.get('/summary',async(req,res)=>{
     res.status(200).send(result.rows[0]);
 });
 
-router.post('/setroom', async(res, req)=>{
-	
-})
-
-router.get('/getrooms', async(res, req)=>{
-	
-})
-
 module.exports = router;

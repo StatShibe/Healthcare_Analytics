@@ -40,7 +40,7 @@ const AppointmentEdit = () => {
         {/* Common inputs */}
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="patient_id" className={labelStyling}>Patient ID : </label>
-          <input type="text" name="patient_id" className = {inputStyling} onChange={handleChange}/>
+          <input type="text" name="patient_id" className = {inputStyling} value = {data.patient_id} onChange={handleChange}/>
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="appointment_date" className={labelStyling}>Appointment Date : </label>

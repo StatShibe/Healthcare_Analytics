@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS public.inpatients
     admission_reason character varying(100) COLLATE pg_catalog."default",
     primary_doctor_id integer NOT NULL,
     discharge_date date,
+    discharge_status char DEFAULT 'N',
     CONSTRAINT inpatients_pkey PRIMARY KEY (admission_id)
 )
 

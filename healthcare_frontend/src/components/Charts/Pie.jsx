@@ -5,11 +5,11 @@ ChartJS.register(
   ArcElement, Tooltip, Legend
 )
 
-const PieGraph = () => {
+const PieGraph = ({values}) => {
 
     const data = {
         datasets: [{
-            data: [104, 56],
+            data: [values.total - values.curr_avbl, values.curr_avbl],
             labels: [
                 'Occupied',
                 'Vacant'

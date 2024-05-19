@@ -67,7 +67,7 @@ const router = createBrowserRouter([
 		element : <DoctorEdit/>,
 		errorElement : <ErrorPage/>
 	},{
-		path : "createinpatient",
+		path : "createinpatient/:room_id",
 		element : <InPatientRegistration/>,
 		errorElement : <ErrorPage/>
 	},{
