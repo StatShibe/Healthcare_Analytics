@@ -88,8 +88,8 @@ const DoctorEdit = () => {
         </div>
         <div className="flex flex-row justify-between p-4">
           <label htmlFor="address" className={labelStyling}>Address:</label>
-          <input name="address" type="text" className = {inputStyling} value={data?.address} onChange={handleChange}/>
-        </div>
+          <input name="address" type="text" className = {inputStyling} value={data?.address || ""} onChange={handleChange}/>
+        </div>  
 		<div className="flex flex-row justify-between p-4">
           <label htmlFor="on_duty" className={labelStyling}>On Duty</label>
           Yes <input type = "radio" value = "Y" name = "on_duty" className="hover:scale-150" checked={data?.on_duty === 'Y'} onChange={handleChange} required/>
