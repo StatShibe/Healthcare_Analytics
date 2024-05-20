@@ -8,6 +8,12 @@ router.get('/',(req,res)=>{
     res.send("Doctors Route");
 });
 
+router.get('/summary',async(req,res)=>{
+    const data = await db.query("SELECT COUNT(*) AS ON_DUTY, (SELECT COUNT(*) FROM DOCTORS WHERE ON_DUTY != $1) AS NOT_DUTY FROM DOCTORS WHERE ON_DUTY = $2",['Y','Y']);
+    console.log(data.rows)
+    res.status(200).send(data.rows[0]   );
+});
+
 router.get('/all',async(req,res)=>{
     const data = await db.query("SELECT DOCTOR_ID,NAME, EMAIL,DOB, SPECIALIZATION, YEARS_EXPR, GENDER, ON_DUTY, EMP_IND FROM DOCTORS WHERE ON_DUTY = $1",['Y']);
     res.status(200).send(data.rows);

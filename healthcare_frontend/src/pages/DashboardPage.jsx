@@ -7,6 +7,7 @@ import SideMenu from '../components/SideMenu'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import DailySummaryBarGraph from '../components/Charts/DailySummaryBar'
+import DoctorsDoughnutChart from '../components/Charts/DoctorsDoughnutChart'
 
 
 const DashboardPage = () => {
@@ -54,6 +55,9 @@ const DashboardPage = () => {
 				
 					<div className='h-[500px] col-span-2 p-8'>
 						<DailySummaryBarGraph />
+					</div>
+					<div className='h-[500px] p-8'>
+						<DoctorsDoughnutChart/>	
 					</div>
 					
 				</div>
