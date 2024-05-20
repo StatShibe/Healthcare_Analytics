@@ -32,7 +32,7 @@ const DoctorDataInsert = () => {
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="h-fit w-5/8 bg-red-300 p-6 rounded shadow-md font-poppins">
+      <div className="h-fit w-5/8 bg-sky-400 p-6 rounded shadow-md font-poppins">
         <h1 className="text-3xl">Doctor Registration Form</h1>
         <br/>
         <form onSubmit={handleSubmit}>
