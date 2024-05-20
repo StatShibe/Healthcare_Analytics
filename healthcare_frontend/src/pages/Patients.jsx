@@ -8,7 +8,7 @@ const Patients = () => {
   const [data,setData] = useState([]);
 
   const patientStyling = "m-6 w-[300px] h-fit"
-  const displayStyling = "m-6 w-[500px] h-fit"
+  const displayStyling = "m-6 w-fit h-fit"
 
   const fetchData= async()=>{
     await axios.get(import.meta.env.VITE_SERVER_URL+'/inpatient/current').then((response)=>{
@@ -24,7 +24,7 @@ const Patients = () => {
       <SideMenu/>
       <div className="h-screen w-screen bg-white font-poppins">
           <NavigationBar/>  
-          <div className="flex flex-row justify-around">
+          <div className="grid grid-cols-4 justify-around">
               {
                 data?.map((row,index)=>{
                   return(

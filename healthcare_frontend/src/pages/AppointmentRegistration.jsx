@@ -23,7 +23,7 @@ const AppointmentRegistration = () => {
                 credentials: 'include'
         }).then((response)=>{
           console.log(response.data)
-          navigate('/');
+          navigate('/appointments');
         });
     }
 

@@ -59,7 +59,7 @@ const RoomAllocation = () => {
 				</Card>
 
 			</div>
-			<div className="flex flex-row justify-center">
+			<div className="grid grid-cols-4 justify-center">
 			{
 				data?.map((row,index)=>{
 					return(
