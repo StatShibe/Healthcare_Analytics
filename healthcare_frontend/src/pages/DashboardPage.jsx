@@ -28,33 +28,34 @@ const DashboardPage = () => {
 			<SideMenu/>
 			<div className="h-fit w-screen bg-white font-poppins">	
 			  	<NavigationBar/>
-				<div className='grid grid-cols-3 grid-rows-1 gap-4 justify-center'>
-					<div className='p-5'>
+				<div className='grid grid-cols-2 gap-4 justify-center'>
+					<div className='p-5 h-[300px]'>
 						<PieGraph values = {allocation}/>
 	        		</div>
-					<div className='flex flex-col items-center justify-evenly'>
-						<div className='h-[150px] w-[300px] bg-slate-200 p-5 text-center rounded-md shadow-md'>
+					<div className='flex flex-row items-center justify-evenly'>
+						<div className='h-[120px] w-[250px] bg-slate-200 p-3 text-center rounded-md shadow-md'>
 							<h2>Occupied Beds</h2>
 							<br/>
-							<p className='text-4xl'>{allocation.total - allocation.curr_avbl}</p>
+							<p className='text-2xl'>{allocation.total - allocation.curr_avbl}</p>
 						</div>
-						<div className='h-[150px] w-[300px] bg-slate-200 p-5 text-center rounded-md shadow-md'>
+						<div className='h-[120px] w-[250px] bg-slate-200 p-3 text-center rounded-md shadow-md'>
 							<h2>Vacant Beds</h2>
 							<br/>
-							<p className='text-4xl'>{allocation.curr_avbl}</p>
+							<p className='text-2xl'>{allocation.curr_avbl}</p>
 						</div>
 					</div>
-					<div className='flex flex-col items-center justify-between'>
-						<div className='h-[200px]'>
-							<LineGraph/>
-						</div>
-						<div className='h-[200px]'>
-							<LineGraph2/>
-						</div>
-						<div className='h-[200px]'>
-							<DailySummaryBarGraph />
-						</div>
+				
+					<div className='h-[250px]'>
+						<LineGraph/>
 					</div>
+					<div className='h-[250px]'>
+						<LineGraph2/>
+					</div>
+				
+					<div className='h-[500px] col-span-2 p-8'>
+						<DailySummaryBarGraph />
+					</div>
+					
 				</div>
 	      	</div>
 		</div>

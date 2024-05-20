@@ -36,7 +36,19 @@ const LineGraph = () => {
 
 	const options = {
 		maintainAspectRatio : false,
-		responsive : true
+		responsive : true,
+		scales: {
+			x: {
+				grid: {
+					display:false
+				}
+			},
+			y: {
+				grid: {
+					display:true
+				}   
+			}
+		}
 	}
 
 	return(

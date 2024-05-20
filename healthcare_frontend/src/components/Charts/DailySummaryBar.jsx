@@ -56,6 +56,18 @@ const DailySummaryBarGraph = () => {
           formatter: (value) => value,
         },
     },
+    scales: {
+      x: {
+          grid: {
+              display:false
+          }
+      },
+      y: {
+          grid: {
+              display:true
+          }   
+      }
+  }
 };
 
   return <Bar ref={chartRef} options={options} data={barChartData} />;
