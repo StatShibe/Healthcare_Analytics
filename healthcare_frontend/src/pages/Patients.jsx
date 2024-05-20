@@ -3,10 +3,11 @@ import SideMenu from "../components/SideMenu"
 import { Card, CardContent } from "@mui/material"
 import { useState, useEffect } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Patients = () => {
   const [data,setData] = useState([]);
-
+  const navigate = useNavigate();
   const patientStyling = "m-6 w-[300px] h-fit"
   const displayStyling = "m-6 w-fit h-fit"
 
@@ -37,6 +38,7 @@ const Patients = () => {
                       <p>Admission Reason : {row?.admission_reason}</p>
                       <p>Doctor ID : {row?.primary_doctor_id}</p>
                       <p>Discharge Date : {new Date(row?.discharge_date)?.toLocaleDateString()}</p>
+                      <button onClick={()=> navigate('/addtreatment')} className="bg-sky-100 p-2 rounded-sm hover:bg-pink-200 hover:scale-110  hover:transition-all">Add Treatment</button>
                     </CardContent>
                   </Card>
                 )})

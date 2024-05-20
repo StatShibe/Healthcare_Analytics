@@ -28,13 +28,13 @@ const InPatientRegistration = () => {
         });
   }
 
-  const inputStyling = "w-3/4 h-[30px] rounded-md focus:scale-110 transition-all p-2"
+  const inputStyling = "w-[300px] h-[30px] rounded-md focus:scale-110 transition-all p-2"
   const labelStyling = "text-lg text-white" 
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="h-fit w-fit bg-slate-400 p-6 rounded shadow-md font-poppins">
-        <h1 className="text-3xl text-white">Register Form</h1>
+      <div className="h-fit w-5/8 bg-slate-400 p-6 rounded shadow-md font-poppins">
+        <h1 className="text-3xl text-white">INPATIENT REGISTRATION</h1>
         <br/>
         <form onSubmit={handleSubmit}>
   

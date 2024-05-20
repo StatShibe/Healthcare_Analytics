@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SideNavBar, { SideBarItem } from '../components/SideNavBar';
 import {Link, useNavigate} from 'react-router-dom';
-import { LayoutDashboardIcon, UserSquare2, HeartPulseIcon, Stethoscope, NotebookPen, LogInIcon } from 'lucide-react';
+import { LayoutDashboardIcon, UserSquare2, HeartPulseIcon, Stethoscope, NotebookPen, LogInIcon, Syringe } from 'lucide-react';
 import axios from 'axios';
 import Cookie from 'js-cookie';
 
@@ -33,6 +33,7 @@ function SideMenu() {
 					<Link to = "/patients"><SideBarItem text = "Patients" icon = {<HeartPulseIcon className="ml-1 w-7 h-7"/>}/></Link>
 					<Link to = "/doctors"><SideBarItem text = "Doctors" icon = {<Stethoscope className="ml-1 w-7 h-7"/>}/></Link>
 					<Link to = "/appointments"><SideBarItem text = "Appointments" icon = {<NotebookPen className="ml-1 w-7 h-7"/>}/></Link>
+					<Link to = "/treatments"><SideBarItem text = "Treatments" icon = {<Syringe className="ml-1 w-7 h-7"/>}/></Link>
 					<div onClick={handleAuth}>
 						<SideBarItem text = {authButton} icon = {<LogInIcon className="ml-1 w-7 h-7" />}/>
 					</div>

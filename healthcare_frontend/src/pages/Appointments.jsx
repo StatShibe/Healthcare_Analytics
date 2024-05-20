@@ -3,6 +3,8 @@ import NavigationBar from '../components/NavigationBar'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Card, CardContent } from '@mui/material'
+import { PlusCircleIcon } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Appointments = () => {
   const listStyling = "m-6 h-[250px] w-fit"
@@ -19,7 +21,9 @@ const Appointments = () => {
       <SideMenu/>
       <div className="h-screen w-screen bg-white font-poppins">
           <NavigationBar/>
+          <Link to = "/createappointment"><div className="h-fit w-[300px] p-3 m-5 hover:bg-slate-500 hover:scale-110 hover:transition-all hover:text-white rounded-lg shadow-md flex flex-row"><PlusCircleIcon/> Add Appointment</div></Link>
           <div className='grid grid-cols-3 items-left'>
+          
               {
                 data?.map((row,index)=>{
                   return(
