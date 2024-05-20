@@ -64,7 +64,7 @@ const RoomAllocation = () => {
 				data?.map((row,index)=>{
 					return(
 								<div className="p-6 h-fit w-fit">
-									<Card key={index}>
+									<Card key={index} className="hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white">
 										<CardContent>
 											<h1 className="font-bold">Room ID : {row.room_id}</h1>
 											<p>Room Area : {row.room_area}</p>

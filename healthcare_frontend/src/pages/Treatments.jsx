@@ -7,7 +7,7 @@ import { Card, CardContent } from '@mui/material'
 
 const Treatments = () => {
   const calenderStyling = "m-6 h-[300px] w-[300px]"
-  const listStyling = "m-6 h-fit w-[300px]"
+  const listStyling = "m-6 h-fit w-[300px] hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white"
   const recencyStyling = "m-6 h-[300px] w-[300px]"
 
   const [data,setData] = useState([]);

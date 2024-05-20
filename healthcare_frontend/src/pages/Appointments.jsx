@@ -7,7 +7,7 @@ import { PlusCircleIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const Appointments = () => {
-  const listStyling = "m-6 h-[250px] w-fit"
+  const listStyling = "m-6 h-[250px] w-fit hover:scale-105 hover:transition-all hover:bg-gradient-to-r from-slate-600 to-slate-300 hover:text-white"
   const [data,setData] = useState([]);
 
   useEffect(()=>{
