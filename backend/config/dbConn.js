@@ -1,13 +1,7 @@
-require('dotenv').config();
-const pg = require('pg')
+require('dotenv').config()
+const client = require('@supabase/supabase-js')
 
-const client = new pg.Client({
-    host: process.env.DB_HOST,
-    port: 5432,
-    database: process.env.DB_NAME,
-    user:  process.env.DB_USER,
-    password:  process.env.DB_PASSWORD,
-})
+//console.log(process.env.PROJECT_URL)
 
-
+const supabase = client.createClient(process.env.PROJECT_URL,process.env.ANON_KEY);
 module.exports = client;
