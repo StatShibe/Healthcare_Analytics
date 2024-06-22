@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import cardiogramIcon from "../assets/images/electrocardiogram.svg" 
 import {createClient} from "@supabase/supabase-js"
 
-const supabase = createClient(VITE_DBPROJECT_URL, VITE_DBANON_KEY)
+const supabase = createClient(import.meta.env.VITE_DBPROJECT_URL, import.meta.env.VITE_DBANON_KEY)
 
 const LoginPage = () => {
 
@@ -12,9 +12,10 @@ const LoginPage = () => {
 
    	const handleLogin = async(e) =>{
 		e.preventDefault();
-		const {data, error} = await supabase.auth.signInWithPassword({
-			email : data.email,
-			password : data.password
+		const { email, password } = data; 
+		const {data:loginData, error} = await supabase.auth.signInWithPassword({
+			email : data?.email,
+			password : data?.password
 		})	
 		if(error){
 			console.log(error);
