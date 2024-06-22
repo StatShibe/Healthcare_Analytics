@@ -1,25 +1,28 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 import cardiogramIcon from "../assets/images/electrocardiogram.svg" 
-import axios from 'axios';
+import {createClient} from "@supabase/supabase-js"
 
+const supabase = createClient(VITE_DBPROJECT_URL, VITE_DBANON_KEY)
 
-const LoginPage = () => 	{
+const LoginPage = () => {
+
 	const [data,setData] = useState({});
 	const navigate = useNavigate();
 
-   const handleLogin = async(e) =>{
-	e.preventDefault();
-		await axios.post(import.meta.env.VITE_SERVER_URL+'/auth/login',data,{
-			headers: {'content-type': 'application/x-www-form-urlencoded'},
-            withCredentials: true,
-            credentials: 'include'
-		}).then((response)=>{
-			console.log(response.data)
-			console.log("Logged in!");
-			navigate('/');
-		});
-   }
+   	const handleLogin = async(e) =>{
+		e.preventDefault();
+		const {data, error} = await supabase.auth.signInWithPassword({
+			email : data.email,
+			password : data.password
+		})	
+		if(error){
+			console.log(error);
+		}
+		else{
+			navigate("/dashboard")
+		}
+	}
 
    const handleChange = (e) =>{
 		setData({...data,[e.target.name]:e.target.value});
