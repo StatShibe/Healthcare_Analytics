@@ -6,7 +6,7 @@ const SideBarContext = createContext();
 const SideNavBar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(true);
     return (
-        <div className={`flex h-fit bg-gray-200 ${isOpen ? "w-48" : "w-16"} transition-all duration-300`}>
+        <div className={`flex h-screen bg-gray-200 ${isOpen ? "w-48" : "w-16"} transition-all duration-300`}>
             {/* Sidebar */}
             <div className={`bg-white border-r ${isOpen ? "" : "border-gray-300"} w-full flex flex-col`}>
                 {/* Sidebar Header */}
