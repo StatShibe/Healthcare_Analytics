@@ -26,10 +26,10 @@ const DashboardPage = () => {
   	return (
     <>
 		<div className='flex flex-row'>
-			<SideMenu/>
+			<div className='fixed'><SideMenu/></div>
 			<div className="h-fit w-screen bg-white font-poppins">	
 			  	<NavigationBar/>
-				<div className='grid grid-cols-2 gap-4 justify-center'>
+				<div className='grid grid-cols-2 gap-4 justify-center ml-52'>
 					<div className='p-5 h-[300px]'>
 						<PieGraph values = {allocation}/>
 	        		</div>
