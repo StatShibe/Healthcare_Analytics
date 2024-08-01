@@ -11,7 +11,7 @@ import DoctorsDoughnutChart from '../components/Charts/DoctorsDoughnutChart'
 
 
 const DashboardPage = () => {
-
+	
 	const [allocation, setAllocation] = useState({});
 	async function fetchData(){
 		await axios.get(import.meta.env.VITE_SERVER_URL+'/rooms/summary').then((response)=>{
