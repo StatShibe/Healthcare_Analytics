@@ -15,7 +15,6 @@ const NavigationBar = () => {
     <>
 		<div>
 			<div className='flex flex-row h-14 w-full bg-white justify-center items-center text-center border-b'>
-			
 			</div>
 		</div>
     </>
