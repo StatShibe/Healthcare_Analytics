@@ -7,6 +7,8 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
+import { useEffect, useState } from "react"
+import axios from 'axios'
   
 
 const patientDetails = [
@@ -53,7 +55,22 @@ const patientDetails = [
     
 ]
 
+
 const PatientDetails = () => {
+
+    const [patients, setPatients] = useState([]);
+
+    const getData = async() => {
+        await axios.get(import.meta.env.VITE_SERVER_URL+'/patients/all').then((response)=>{
+            setPatients(response.data);
+            console.log(response.data);
+        })
+    }
+    
+    useEffect(() => {
+        getData()
+    }, [])
+
     return (
         <>
             <div className="h-screen p-6">
