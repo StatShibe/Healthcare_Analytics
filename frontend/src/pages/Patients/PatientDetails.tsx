@@ -8,9 +8,22 @@ import {
     TableRow,
   } from "@/components/ui/table"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import axios from 'axios'
-  
 
+interface Patient {
+    patient_id : number,
+    first_name : string,
+    last_name : string,
+    age : number, 
+    gender : string,
+    primary_ph_no : number,
+    secondary_ph_no : number,
+    address : string,
+    last_visit : string,
+    treatment_status : string
+}
+/*
 const patientDetails = [
     {
         cust_id : 1,
@@ -54,14 +67,14 @@ const patientDetails = [
     }
     
 ]
-
+*/
 
 const PatientDetails = () => {
 
-    const [patients, setPatients] = useState([]);
+    const [patients, setPatients] = useState<Patient[]>([]);
 
     const getData = async() => {
-        await axios.get(import.meta.env.VITE_SERVER_URL+'/patients/all').then((response)=>{
+        await axios.get<Patient[]>(import.meta.env.VITE_SERVER_URL+'/patients/all').then((response)=>{
             setPatients(response.data);
             console.log(response.data);
         })
@@ -74,7 +87,7 @@ const PatientDetails = () => {
     return (
         <>
             <div className="h-screen p-6">
-            <Table>
+            <Table className="font-['Poppins']">
                 <TableCaption>List of Patients</TableCaption>
                 <TableHeader>
                   <TableRow>
@@ -90,15 +103,16 @@ const PatientDetails = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        patientDetails.map((patients, index) => (<TableRow key={index}>
-                            <TableCell className="font-medium">{patients.cust_id}</TableCell>
-                            <TableCell>{patients.name}</TableCell>
-                            <TableCell>{patients.age}</TableCell>
-                            <TableCell>{patients.gender}</TableCell>
-                            <TableCell>{patients.phno}</TableCell>
-                            <TableCell>{patients.address}</TableCell>
-                            <TableCell>{patients.treatment_status}</TableCell>
-                            <TableCell className="text-right">{patients.last_visit}</TableCell>
+                        patients?.map((patient, index) => (
+                        <TableRow key={index} className="hover:bg-teal-500 hover:text-white">
+                            <TableCell className="font-medium">{patient.patient_id}</TableCell>
+                            <Link to="/" className="hover:text-blue-700"><TableCell>{`${patient.first_name} ${patient.last_name}`}</TableCell></Link>
+                            <TableCell>{patient.age}</TableCell>
+                            <TableCell>{patient.gender}</TableCell>
+                            <TableCell>{patient.primary_ph_no}</TableCell>
+                            <TableCell>{patient.address}</TableCell>
+                            <TableCell>{patient.treatment_status}</TableCell>
+                            <TableCell className="text-right">{new Date(patient.last_visit).toLocaleDateString()}</TableCell>
                         </TableRow>
                         ))
                     }

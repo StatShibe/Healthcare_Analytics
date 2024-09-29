@@ -12,7 +12,7 @@ const linkStyling = "ml-6"
 const SideNav = () => {
     return(
         <>
-             <nav className="h-screen fixed w-[220px] bg-white border-r-2 flex flex-col justify-start font-['Orbitron'] text-slate-600">
+             <nav className="h-screen fixed w-[220px] bg-white border-r-2 flex flex-col justify-start font-['Poppins'] text-slate-600">
                 <div className="p-2 flex flex-row w-full justify-center h-[100px]">
                     <Avatar>
                         <AvatarImage src={HealthcareLogo}/>
@@ -55,7 +55,7 @@ const SideNav = () => {
                     <div className={menuItemStyling2}>
                     <div className = {menuItemStyling3}>
                             <NotebookPen className={iconStyling}/>
-                            <Link to="/" className={linkStyling}>Appointments</Link>
+                            <Link to="/appointments" className={linkStyling}>Appointments</Link>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const SideNav = () => {
                     <div className={menuItemStyling2}>
                     <div className = {menuItemStyling3}>
                             <Syringe className={iconStyling}/>
-                            <Link to="/" className={linkStyling}>Treatment</Link>
+                            <Link to="/treatments" className={linkStyling}>Treatment</Link>
                         </div>
                     </div>
                 </div>

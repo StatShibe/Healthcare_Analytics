@@ -71,4 +71,8 @@
     font-family: 'Orbitron';
     src: url(./assets/fonts/Orbitron-Bold.ttf);
   }
+  @font-face {
+    font-family:'Poppins';
+    src: url(./assets/fonts/Poppins-Medium.ttf);
+  }
 }

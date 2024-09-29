@@ -1,6 +1,36 @@
 import DoctorDisplayCard from "@/components/custom/doctordisplaycard"
+import axios from 'axios'
+import { useState, useEffect } from "react"
+
+interface Doctor {
+    user_id : number,
+    name : string,
+    ph_no : number,
+    dob : string,
+    gender : string,
+    address : string,
+    specialization : string,
+    email : string,
+    years_expr : number,
+    on_duty : string,
+    emp_ind : string
+}
 
 const DoctorDetails = () => {
+
+    const [doctors, setDoctors] = useState<Doctor[]>([])
+    const getDate = async() => {
+        await axios.get<Doctor[]>(import.meta.env.VITE_SERVER_URL+'/doctor/all').then((response)=>{
+            setDoctors(response.data)
+            console.log(response.data)
+        })
+    }
+
+    useEffect(() => {
+        getDate()
+    }, [])
+
+    /*
     const doctors = [
         {
             name : "Haresh",
@@ -60,19 +90,21 @@ const DoctorDetails = () => {
         }
         
     ]
+
+    */
     return(
         <>
             <div className="h-screen p-8 grid grid-cols-3">
                 {
-                    doctors.map((doctor , index) => (
+                    doctors?.map((doctor , index) => (
                         <DoctorDisplayCard
                             key={index}
                             name = {doctor.name} 
                             specialization = {doctor.specialization}
-                            experience = {doctor.experience}
-                            phno = {doctor.phno}
+                            experience = {doctor.years_expr}
+                            phno = {doctor.ph_no}
                             email = {doctor.email}
-                            active = {doctor.active}
+                            active = {doctor.on_duty == 'Y' ? true : false}
                         />
                     ))
                 }

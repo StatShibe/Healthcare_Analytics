@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3500;
 const authRouter = require("./routes/auth.router");
 const docRouter = require('./routes/doctors.router');
 const roomsRouter = require("./routes/rooms.router");
-const inPatientRouter = require('./routes/inpatient.router');
+const patientRouter = require('./routes/patients.router');
 const appointmentRouter = require('./routes/appointments.router');
 const treatmentRouter = require('./routes/treatments.router');
 
@@ -33,16 +33,19 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(morgan('tiny'));
 app.use(cors({
     credentials: true, 
-    origin: "http://localhost:5173"
+    origin: ["http://localhost:5173",
+        "http://localhost:5174"
+    ]
 }));
 
 app.use("/auth",authRouter);
 app.use("/doctor",docRouter);
 app.use("/rooms",roomsRouter);
-app.use("/inpatient",inPatientRouter);
+app.use("/patients",patientRouter);
 app.use("/appointments",appointmentRouter);
 app.use("/treatments",treatmentRouter);
 
+/*
 
 app.get('/dailysummary/:date',async(req,res)=>{
     const date = new Date(req.params.date);
@@ -67,8 +70,9 @@ app.get('/dailysummary/:date',async(req,res)=>{
 cron.schedule('30 20 * * *', () => {
     dischargeUpdate();
 });
+*/
 
 app.listen(PORT, ()=>{
     console.log(`Server is running at PORT ${PORT}`);
-    dischargeUpdate();
+    //dischargeUpdate();
 })
