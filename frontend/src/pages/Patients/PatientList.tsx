@@ -40,7 +40,7 @@ const patientDetails = [
         cust_id : 1,
         name : "John Doe",
         age : 32,
-        gender : "male",
+        gender : "male",        
         phno : 9876543210,
         address: "Chennai",
         treatment_status : "Completed",
